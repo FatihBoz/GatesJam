@@ -24,10 +24,10 @@ public class Table : MonoBehaviour
     {
         sqrt2 = Mathf.Sqrt(2);
 
-        LogicallyVec = new Vector2(sqrt2, sqrt2);
-        HealthyVec = new Vector2(1.0f, 0f);
-        SweatnessVec = new Vector2(0f, 1f);
-        AcidityVec = new Vector2(-sqrt2, sqrt2);
+        LogicallyVec = new Vector2(sqrt2, sqrt2).normalized;
+        HealthyVec = new Vector2(1.0f, 0f).normalized;
+        SweatnessVec = new Vector2(0f, 1f).normalized;
+        AcidityVec = new Vector2(-sqrt2, sqrt2).normalized;
     }
 
 
@@ -36,23 +36,24 @@ public class Table : MonoBehaviour
         IngredientsToTable(Ingredients);
     }
 
-    private void Update()
-    {
-        IngredientsToTable(Ingredients);
-    }
 
-    void IngredientsToTable(Ingredients ingr)
+
+    public void IngredientsToTable(Ingredients ingr)
     {
         LVec = ingr.Logically * LogicallyVec;
         HVec = ingr.Healthy * HealthyVec;
         SVec = ingr.Sweetness * SweatnessVec;
         AVec = ingr.Acidity * AcidityVec;
 
+        Debug.Log(ingr.Sweetness);
+
+        ingr.ToString();
+
         ResultVec = LVec + HVec + SVec + AVec;
 
 
+        transform.position += new Vector3(ResultVec.x, ResultVec.y, transform.position.z) * offset;
 
-        transform.position = new Vector3(ResultVec.x, ResultVec.y, transform.position.z) * offset;
 
 
     }

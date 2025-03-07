@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 60aad2e060cf2654599fde2d4311e670, type: 3}
-  m_Name: Armut
+  m_Name: Armut 1
   m_EditorClassIdentifier: 
-  Logically: 1
+  Logically: -1
   Healthy: 0
   Sweetness: 0
   Acidity: 0
