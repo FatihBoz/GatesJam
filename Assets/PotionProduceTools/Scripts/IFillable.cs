@@ -8,5 +8,5 @@ public interface IFillable
 
     public Transform FillPoint { get; }
 
-    public void Fill(Color color, float delay, float fillTime);
+    public void Fill(Color color, float delay, float fillTime, float successRate);
 }
