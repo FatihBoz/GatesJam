@@ -1,6 +1,15 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
+//
+/// <summary>
+/// 
+///  FINETASY ENTARTAINMENT  2023 - 2025
+///  
+///  MUSTAFA ÇETİN
+/// 
+/// </summary>
+
 public class SliceManager : MonoBehaviour
 {
     public bool sliceEnabled = false;
@@ -79,12 +88,12 @@ public class SliceManager : MonoBehaviour
         // Parçaları doğru konuma kaydır
         float sliceXLocal = slicePoint.x - obj.transform.position.x;
         leftPart.transform.position = new Vector3(
-            obj.transform.position.x + (sliceXLocal - halfWidth) / 2f,
+            (-.02f * halfWidth) + obj.transform.position.x + (sliceXLocal - halfWidth) / 2f,
             obj.transform.position.y,
             obj.transform.position.z
         );
         rightPart.transform.position = new Vector3(
-            obj.transform.position.x + (sliceXLocal + halfWidth) / 2f,
+            (.02f * halfWidth) + obj.transform.position.x + (sliceXLocal + halfWidth) / 2f,
             obj.transform.position.y,
             obj.transform.position.z
         );
