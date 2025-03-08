@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -61,9 +62,10 @@ public class DialogueManager : MonoBehaviour
     //   StartDialogue(exObject);
     }
 
-    public void StartDialogue(DialogueObject dialogueObject)
+    public async void StartDialogue(DialogueObject dialogueObject)
     {
         alchemistPanelGo.SetActive(false);
+        await Task.Delay(500);
         customerPanelGo.SetActive(true);
         customerNameText.text = dialogueObject.customerName + ":";
         currentState = CustomerStates.CustomerArrived;

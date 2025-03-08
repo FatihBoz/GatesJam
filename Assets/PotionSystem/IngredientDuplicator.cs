@@ -17,7 +17,7 @@ public class IngredientDuplicator : MonoBehaviour
 
     private void Update()
     {
-        if (isDragging)
+        if (isDragging && currentIngredient != null)
         {
             currentIngredient.transform.position = mainCam.ScreenToWorldPoint(Input.mousePosition);
             currentIngredient.transform.position = new Vector3(currentIngredient.transform.position.x, currentIngredient.transform.position.y, 0);
@@ -53,6 +53,6 @@ public class IngredientDuplicator : MonoBehaviour
 
     public void dropItem()
     {
-        InventorySystem.instance.DelItem(ingrName.ToString(), 1);
+        //InventorySystem.instance.DelItem(ingrName.ToString(), 1);
     }
 }

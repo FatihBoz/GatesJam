@@ -36,12 +36,15 @@ public class InventorySystem : MonoBehaviour
     {
         foreach(Ingredients ingr in ingredients)
         {
-            InventoryItem item = new InventoryItem();
+            GameObject item = new();
 
-            item.ingredient = ingr;  // Ingredients sýnýfý tanýmlý olmalý
-            item.quantity = 10;
+            InventoryItem iitem = item.AddComponent<InventoryItem>();
 
-            Inventory.Add(item);
+
+            iitem.ingredient = ingr;  // Ingredients sýnýfý tanýmlý olmalý
+            iitem.quantity = 3;
+
+            Inventory.Add(iitem);
 
             //Inventory.Add(new InventoryItem { ingredient = ingr, quantity = 99 });
 
