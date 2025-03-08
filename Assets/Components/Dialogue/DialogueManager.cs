@@ -28,6 +28,7 @@ public class DialogueManager : MonoBehaviour
     public GameObject customerPanelGo;
 
     public TMP_Text alchemistDialogueText;
+    public TMP_Text customerNameText;
     public TMP_Text customerDialogueText;
 
     public DialogueObject exObject;
@@ -59,6 +60,7 @@ public class DialogueManager : MonoBehaviour
     {
         alchemistPanelGo.SetActive(false);
         customerPanelGo.SetActive(true);
+        customerNameText.text = dialogueObject.customerName + ":";
         currentState = CustomerStates.CustomerArrived;
         currentDialogue = dialogueObject;
         potionScreen.SetActive(false);

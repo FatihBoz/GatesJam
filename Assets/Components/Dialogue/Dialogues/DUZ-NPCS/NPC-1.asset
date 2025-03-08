@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 82ebd1cca3e22e24ba01fe37a48998c0, type: 3}
-  m_Name: "tek par\xE7aa"
+  m_Name: NPC-1
   m_EditorClassIdentifier: 
-  customerName: "Mustafa \xC7etin"
-  startConv: "TEK PAR\xC7AA GER\xC7EK TEK PAR\xC7AAAA"
-  alchmResponse: buyur birader
-  goodAnswer: EYW KINGO
-  badAnswer: BURASI BILIM YA
+  customerName: Julia Rogers
+  startConv: I can't have a baby. I need something to make it possible.
+  alchmResponse: Here, take this and burn it in your home, then recite your favorite
+    poem before sleeping.
+  goodAnswer: Thank you! I'll name my baby after you.
+  badAnswer: Too bad, you've disappointed me.
