@@ -20,6 +20,7 @@ public class Bottle : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, 
     public async void Fill(Color color, float delay, float fillTime)
     {
         animator.SetBool("StopperOut", true);
+        liquid.color = color;
         await Task.Delay((int)(delay * 1000));
 
         liquid.DOFillAmount(1, fillTime).OnComplete(() => animator.SetBool("StopperOut",false));

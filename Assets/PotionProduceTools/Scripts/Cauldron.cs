@@ -8,9 +8,12 @@ public class Cauldron : MonoBehaviour, ICauldron
 
     public GameObject TableUI;
 
+    private TriColor triColor;
+
     private void Start()
     {
         currentScoopCount = maxScoopCountToFill;
+        triColor = new TriColor(0, 0, 0);
     }
 
     public bool DecreaseScoopCount()
@@ -25,16 +28,21 @@ public class Cauldron : MonoBehaviour, ICauldron
 
     public Color GetPotionColor()
     {
-        return Color.magenta;
+        Color32 tempColor = triColor.GetAverageColor();
+        print("cauldron color:" + tempColor.ToString());
+        triColor.ResetColor();
+        return tempColor;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (TableUI.TryGetComponent<TableUI>(out var tableUI))
+        if (TableUI.TryGetComponent<TableUI>(out var tableUI) && collision.TryGetComponent<InventoryItem>(out var item))
         {
-            tableUI.IngredientsToTable(collision.GetComponent<InventoryItem>().ingredient);
+            triColor.AddColor(item.ingredient.color);
+            tableUI.IngredientsToTable(item.ingredient);
+            Destroy(collision.gameObject);
         }
 
-        Destroy(collision.gameObject);
+        
     }
 }

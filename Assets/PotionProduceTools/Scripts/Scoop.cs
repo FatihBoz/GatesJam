@@ -1,5 +1,6 @@
 using DG.Tweening;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Scoop : MonoBehaviour
@@ -12,6 +13,8 @@ public class Scoop : MonoBehaviour
     [SerializeField] private Animator anim;
     [SerializeField] private Vector3 pourOffset;
 
+    [SerializeField] private List<ParticleSystem> particleList;
+
     private IFillable fillableObj;
     private bool isDragging;
     private bool isPouring = false;
@@ -20,13 +23,13 @@ public class Scoop : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print("trigger giriþ");
         if (collision.TryGetComponent<ICauldron>(out var cauldron))
         {
             if (!isFilled && cauldron.DecreaseScoopCount())
             {
                 liquid.gameObject.SetActive(true);
                 liquid.color = cauldron.GetPotionColor();
+                ChangeParticleSystemColors();
                 isFilled = true;
             }
 
@@ -43,6 +46,15 @@ public class Scoop : MonoBehaviour
         if (collision.TryGetComponent<IFillable>(out var fillable))
         {
             fillableObj = null;
+        }
+    }
+
+    void ChangeParticleSystemColors()
+    {
+        foreach (var particle in particleList)
+        {
+            var main = particle.main;
+            main.startColor = liquid.color;
         }
     }
 
@@ -93,9 +105,6 @@ public class Scoop : MonoBehaviour
         }
 
     }
-
-
-
 
     private IEnumerator PourCooldown()
     {

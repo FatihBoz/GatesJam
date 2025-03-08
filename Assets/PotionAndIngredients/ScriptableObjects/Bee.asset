@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingrName: bee
   ingrPrefab: {fileID: 8969489671376632791, guid: 758b2ca86d38ce74ca1d2bb7dff024d4, type: 3}
-  Logically: 0
+  Logically: -0.9
   Healthy: 0
   Sweetness: 0.3
   Acidity: 0.71
+  color: {r: 0.740566, g: 0.72580457, b: 0.23404679, a: 1}

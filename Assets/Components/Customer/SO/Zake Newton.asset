@@ -16,4 +16,4 @@ MonoBehaviour:
   customerSprite: {fileID: -2043073133013973665, guid: 28238251fb514c54d90ce1f117139548, type: 3}
   hasNewspaper: 0
   newspaperText: 0
-  dialogueObject: {fileID: 11400000, guid: 5f7074ba1c593ee45aa9852b59a6f267, type: 2}
+  dialogueObject: {fileID: 11400000, guid: 337b953bbc784c945a0c641c6fbf7e96, type: 2}

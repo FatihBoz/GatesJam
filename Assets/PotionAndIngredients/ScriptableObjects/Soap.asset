@@ -18,3 +18,4 @@ MonoBehaviour:
   Healthy: -0.5
   Sweetness: 0
   Acidity: -0.5
+  color: {r: 0.8584906, g: 0.518334, b: 0.8584906, a: 1}
