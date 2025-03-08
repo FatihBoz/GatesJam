@@ -45,6 +45,10 @@ public class DialogueManager : MonoBehaviour
 
     public static Action CustomerGoneEvent;
 
+
+    private string currentText;
+    private TMP_Text currentTextTarget;
+
     private void Awake()
     {
         if (Instance == null)
@@ -80,6 +84,8 @@ public class DialogueManager : MonoBehaviour
         {
             StopCoroutine(typingCoroutine);
         }
+        currentText = text;
+        currentTextTarget = target;
         typingCoroutine = StartCoroutine(TypeText(text, target));
     }
 
@@ -94,6 +100,12 @@ public class DialogueManager : MonoBehaviour
             yield return new WaitForSeconds(textSpeed);
         }
 
+        isTyping = false;
+    }
+    public void SceneTransition()
+    {
+        currentTextTarget.text = currentText;
+        StopCoroutine(typingCoroutine);
         isTyping = false;
     }
 
