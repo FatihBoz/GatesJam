@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82ebd1cca3e22e24ba01fe37a48998c0, type: 3}
   m_Name: NPC-6
   m_EditorClassIdentifier: 
-  customerName: Leorio
-  startConv: Hi, I want to be rich quickly.
-  alchmResponse: Here, put this in your town's water and rob them at night.
-  goodAnswer: Thank you! I will send your cut to you.
-  badAnswer: Too bad, you've disappointed me.
+  customerName: Violette Arendse
+  startConv: Hi, I want to feel young again.
+  alchmResponse: Here, put this on your body every night, and you will feel young
+    again.
+  goodAnswer: Thank you.
+  badAnswer: I don't believe it! You are a fraud!
