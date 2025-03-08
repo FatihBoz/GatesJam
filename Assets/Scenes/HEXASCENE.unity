@@ -737,6 +737,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3492635336060680993, guid: d1f2ebbf567481d4faacaf5d4a8af436, type: 3}
+      propertyPath: exObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 7e39fbf226879834294808d695f1bf86, type: 2}
     - target: {fileID: 5089653420290646211, guid: d1f2ebbf567481d4faacaf5d4a8af436, type: 3}
       propertyPath: m_Name
       value: TradeScreen

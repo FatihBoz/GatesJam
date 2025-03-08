@@ -117,7 +117,7 @@ public class DialogueManager : MonoBehaviour
                 // if receveid potion, if answer no go to customer sent away state
                 if (Input.GetKeyDown(KeyCode.Space)) // gived potion
                 {
-                    // return if potion is bad or goods
+
 
                     currentState = CustomerStates.ReceivedPotion;
 
@@ -137,6 +137,8 @@ public class DialogueManager : MonoBehaviour
                     potionScreen.SetActive(false);
                     SetTypingCoroutine(currentDialogue.goodAnswer, customerDialogueText); // good or bad answer will change
 
+                    // TODO: good or bad answer will change
+
                 }
                 // check potion bad or good. answer according to that.
                 break;
@@ -150,7 +152,7 @@ public class DialogueManager : MonoBehaviour
                     alchemistPanelGo.SetActive(false);
                     potionScreen.SetActive(false);
                     SetTypingCoroutine(currentDialogue.badAnswer, customerDialogueText);
-                    // TODO: good or bad answer will change
+
 
                 }
                 break;

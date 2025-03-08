@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82ebd1cca3e22e24ba01fe37a48998c0, type: 3}
   m_Name: NikolaTesla
   m_EditorClassIdentifier: 
-  customerName: Nikola Tesla
+  customerName: Nikola Tekla
   startConv: "Hi. I need an alternative perspective. To my problem.\r"
   alchmResponse: Here, go out on a rainy day and wait for lightning. When it strikes,
     drink this and shout the first word that comes to mind.

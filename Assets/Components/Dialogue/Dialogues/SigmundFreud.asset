@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82ebd1cca3e22e24ba01fe37a48998c0, type: 3}
   m_Name: SigmundFreud
   m_EditorClassIdentifier: 
-  customerName: Sigmund Freud
-  startConv: Hi, I need to learn the meanings of my dreams,they drive me crazy every
+  customerName: Sigmund Fraud
+  startConv: Hi, I need to learn the meanings of my dreams, they drive me crazy every
     day.
   alchmResponse: Here, drink this before sleep, and you will venture beyond your
     subconsciousness.
   goodAnswer: Thanks. Now I can focus on my theory about my mother.
-  badAnswer: 
+  badAnswer: You certainly have an Oedipus complex. Bad person! Bad person!

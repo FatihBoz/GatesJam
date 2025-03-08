@@ -16,4 +16,4 @@ MonoBehaviour:
   startConv: I want to drink milk from my cow, but I can't.
   alchmResponse: "Here, put this on your cow\u2019s food and tap on its head twice."
   goodAnswer: Thank you! Now I can add milk to my cereal in the mornings.
-  badAnswer: 
+  badAnswer: You are a bacterium that I should eliminate.

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82ebd1cca3e22e24ba01fe37a48998c0, type: 3}
   m_Name: CharlesDarwin
   m_EditorClassIdentifier: 
-  customerName: Charles Darwin
+  customerName: Charce Darwin
   startConv: I want to learn the origin of our kind, but I can't find it.
   alchmResponse: Here, drink this while looking at a chimpanzee in the zoo.
   goodAnswer: Thanks! I will write my findings in a book.

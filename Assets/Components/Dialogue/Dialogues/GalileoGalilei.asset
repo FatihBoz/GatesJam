@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82ebd1cca3e22e24ba01fe37a48998c0, type: 3}
   m_Name: GalileoGalilei
   m_EditorClassIdentifier: 
-  customerName: Galileo Galilei
+  customerName: Galileo Galliboli
   startConv: Everything is too flat in my life, I need new twists and turns.
   alchmResponse: Here, drink this and wait for the Catholic Church.
   goodAnswer: Thanks! I feel everything will turn out great with this potion.
