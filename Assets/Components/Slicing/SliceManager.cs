@@ -71,7 +71,8 @@ public class SliceManager : MonoBehaviour
 
         rightSC.size = rightRect;
         rightSC.originalPosition = new Vector2(leftRect.width + sliceable.originalPosition.x, sliceable.originalPosition.y);
-
+        
+       
 
         try
         {
@@ -88,15 +89,18 @@ public class SliceManager : MonoBehaviour
         // Parçaları doğru konuma kaydır
         float sliceXLocal = slicePoint.x - obj.transform.position.x;
         leftPart.transform.position = new Vector3(
-            (-.02f * halfWidth) + obj.transform.position.x + (sliceXLocal - halfWidth) / 2f,
+            (-.002f * halfWidth) + obj.transform.position.x + (sliceXLocal - halfWidth) / 2f,
             obj.transform.position.y,
             obj.transform.position.z
         );
         rightPart.transform.position = new Vector3(
-            (.02f * halfWidth) + obj.transform.position.x + (sliceXLocal + halfWidth) / 2f,
+            (.002f * halfWidth) + obj.transform.position.x + (sliceXLocal + halfWidth) / 2f,
             obj.transform.position.y,
             obj.transform.position.z
         );
+
+        leftPart.transform.rotation = obj.transform.rotation;
+        rightPart.transform.rotation = obj.transform.rotation;
         // Collider ekle
         leftPart.AddComponent<BoxCollider2D>();
         rightPart.AddComponent<BoxCollider2D>();

@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      konusma-balonu_0: 6750988632217728639
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

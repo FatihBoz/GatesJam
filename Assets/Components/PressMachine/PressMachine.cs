@@ -13,6 +13,7 @@ public class PressMachine : MonoBehaviour
     public bool isObjectInPress;
 
     public Transform pressingPoint;
+    private 
 
     void Update()
     {
@@ -25,7 +26,7 @@ public class PressMachine : MonoBehaviour
     public void Press()
     {
         defaultPosition = presser.position;
-        presser.DOMoveY(0.5f, 0.1f);
+        presser.DOLocalMoveY(-1f, 0.1f);
         pressed = true;
         timer=Time.time;
 

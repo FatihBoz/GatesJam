@@ -27,7 +27,7 @@ public class PressHandle : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (!rotated && pressMachine.isObjectInPress)
+        if (!rotated)
         {
             defaultRotation = transform.parent.localEulerAngles;
             transform.parent.DORotate(new Vector3(0, 0, -75), 0.5f).OnComplete(()=>
