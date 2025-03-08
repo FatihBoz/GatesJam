@@ -41,11 +41,12 @@ public class Cauldron : MonoBehaviour, ICauldron
         {
             triColor.AddColor(item.ingredient.color);
             float percentage = 1f;
-            Sliceable sliceable = tableUI.GetComponent<Sliceable>();
+            Sliceable sliceable = item.GetComponent<Sliceable>();
             if (sliceable!=null)
             {
                 percentage = sliceable.percentage;
             }
+            Debug.Log(percentage);
             tableUI.IngredientsToTable(item.ingredient,percentage);
             Destroy(collision.gameObject);
         }
