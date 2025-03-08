@@ -12,10 +12,15 @@ public class IngredientDuplicator : MonoBehaviour
 
     InventoryItem inventoryItem;
 
+    public GameObject ingredientPropPrefab;
+
+
 
     private void Start()
     {
         inventoryItem = InventorySystem.instance.SearchItem(ingrName);
+
+        
     }
 
     private void OnMouseDown()
@@ -32,13 +37,15 @@ public class IngredientDuplicator : MonoBehaviour
         }
 
         UpdateText();
+
+        UpdateProps();
     }
-    /*
-    private void OnMouseUp()
+
+    private void OnMouseEnter()
     {
-        Debug.Log("Item deleted from Inventory");
+        print("Fare üstüne geldi");
+        UpdateProps();
     }
-    */
     public void GetItem()
     {
         if (inventoryItem != null)
@@ -71,4 +78,17 @@ public class IngredientDuplicator : MonoBehaviour
         }
             
     }
+    
+    public void UpdateProps()
+    {
+
+        if (ingredientPropPrefab != null)
+        {
+            ingredientPropPrefab.GetComponentInChildren<TextMeshProUGUI>().text = inventoryItem.ingredient.Acidity.ToString();
+        }
+    }
+    
+
+    
+
 }

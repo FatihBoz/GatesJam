@@ -15,7 +15,7 @@ public class InventorySystem : MonoBehaviour
     private void Awake()
     {
         DefineItemsToInventory();
-
+        RandomlyGiveItems();
 
         // Check if an instance already exists
         if (instance == null)
@@ -41,7 +41,7 @@ public class InventorySystem : MonoBehaviour
 
 
             iitem.ingredient = ingr;  // Ingredients sýnýfý tanýmlý olmalý
-            iitem.quantity = 3;
+            iitem.quantity = 0;
 
             Inventory.Add(iitem);
 
