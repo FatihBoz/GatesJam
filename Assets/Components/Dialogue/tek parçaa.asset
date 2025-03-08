@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82ebd1cca3e22e24ba01fe37a48998c0, type: 3}
   m_Name: "tek par\xE7aa"
   m_EditorClassIdentifier: 
-  dialogue: "Tek par\xE7aaaaaaa, tek par\xE7aa ger\xE7eeeeeekkkk"
+  startConv: "TEK PAR\xC7AA GER\xC7EK TEK PAR\xC7AAAA"
+  alchmResponse: buyur birader
+  goodAnswer: EYW KINGO
+  badAnswer: BURASI BILIM YA

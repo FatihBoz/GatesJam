@@ -1,66 +1,180 @@
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
+
+public enum CustomerStates
+{
+    CustomerArrived,
+    WaitingForPotion,
+    ReceivedPotion,
+    CustomerResponseToPotion,
+    CustomerSentAway,
+    Nothing
+}
+
 
 public class DialogueManager : MonoBehaviour
 {
+    public static DialogueManager Instance { get; private set; }
+    public float textSpeed = 0.1f;
 
-    public DialogueObject dialogueObject;
-    public TMP_Text dialogueText;
-    public float charactersPerSecond = 30f;
+    public GameObject potionScreen;
+    public Button nayButton;
 
-    private string currentMessage;
+    public GameObject alchemistPanelGo;
+    public GameObject customerPanelGo;
+
+    public TMP_Text alchemistDialogueText;
+    public TMP_Text customerDialogueText;
+
+    public DialogueObject exObject;
+
+    private DialogueObject currentDialogue;
+
+    private bool isTyping;
     private Coroutine typingCoroutine;
-    private bool isTyping = false;
+    private CustomerStates currentState;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void Start()
     {
-        StartDialogue(dialogueObject.dialogue);
+        StartDialogue(exObject);
     }
 
-    void Update()
+    public void StartDialogue(DialogueObject dialogueObject)
     {
-        // Skip typing animation when player presses Confirm input (Space/Return)
-        //if (isTyping && Input.GetButtonDown("Submit"))
-        //{
-        //    CompleteDialogue();
-        //}
+        alchemistPanelGo.SetActive(false);
+        customerPanelGo.SetActive(true);
+        currentState = CustomerStates.CustomerArrived;
+        currentDialogue = dialogueObject;
+        potionScreen.SetActive(false);
+
+        SetTypingCoroutine(currentDialogue.startConv, customerDialogueText);
     }
-
-    public void StartDialogue(string message)
+    public void SetTypingCoroutine(string text, TMP_Text target)
     {
-        currentMessage = message;
-
-        // Stop existing typing if any
         if (typingCoroutine != null)
         {
             StopCoroutine(typingCoroutine);
         }
-
-        typingCoroutine = StartCoroutine(TypeText());
+        typingCoroutine = StartCoroutine(TypeText(text, target));
     }
-    IEnumerator TypeText()
+
+    private IEnumerator TypeText(string text, TMP_Text target)
     {
         isTyping = true;
-        dialogueText.text = "";
+        target.text = "";
 
-        float delay = 1 / charactersPerSecond;
-
-        foreach (char letter in currentMessage.ToCharArray())
+        foreach (char c in text)
         {
-            dialogueText.text += letter;
-
-            // Wait for next character
-            yield return new WaitForSecondsRealtime(delay);
+            target.text += c;
+            yield return new WaitForSeconds(textSpeed);
         }
 
         isTyping = false;
     }
 
-    public void SetTextSpeed(float newSpeed)
+    private void Update()
     {
-        charactersPerSecond = newSpeed;
+        if (currentDialogue == null)
+        {
+            return;
+        }
+        switch (currentState)
+        {
+            case CustomerStates.CustomerArrived:
+                if (!isTyping)
+                {
+                    currentState = CustomerStates.WaitingForPotion;
+                    // enable potion screen
+                    potionScreen.SetActive(true);
+                    nayButton.onClick.AddListener(NayButtonEvent);
+                }
+                break;
+            case CustomerStates.WaitingForPotion:
+                Debug.Log("waiting potion");
+                // if receveid potion, if answer no go to customer sent away state
+                if (Input.GetKeyDown(KeyCode.Space)) // gived potion
+                {
+                    // return if potion is bad or goods
+
+                    currentState = CustomerStates.ReceivedPotion;
+
+                    customerPanelGo.SetActive(false);
+                    alchemistPanelGo.SetActive(true);
+                    potionScreen.SetActive(false);
+                    SetTypingCoroutine(currentDialogue.alchmResponse, alchemistDialogueText);
+                }
+                break;
+            case CustomerStates.ReceivedPotion:
+                Debug.Log("received potion");
+                if (!isTyping && Input.GetMouseButtonDown(0))
+                {
+                    currentState = CustomerStates.Nothing;
+                    customerPanelGo.SetActive(true);
+                    alchemistPanelGo.SetActive(false);
+                    potionScreen.SetActive(false);
+                    SetTypingCoroutine(currentDialogue.goodAnswer, customerDialogueText); // good or bad answer will change
+
+                }
+                // check potion bad or good. answer according to that.
+                break;
+            case CustomerStates.CustomerResponseToPotion:
+                Debug.Log("customer response to potion");
+                // if answer no in waiting for potion state, go to customer sent away state
+                if (!isTyping && Input.GetMouseButtonDown(0))
+                {
+                    currentState = CustomerStates.Nothing;
+                    customerPanelGo.SetActive(true);
+                    alchemistPanelGo.SetActive(false);
+                    potionScreen.SetActive(false);
+                    SetTypingCoroutine(currentDialogue.badAnswer, customerDialogueText); // good or bad answer will change
+
+                }
+                break;
+            case CustomerStates.CustomerSentAway:
+                Debug.Log("customer sent away");
+                // if answer no in waiting for potion state, go to customer sent away state
+                if (!isTyping && Input.GetMouseButtonDown(0))
+                {
+                    currentState = CustomerStates.Nothing;
+                    customerPanelGo.SetActive(false);
+                    alchemistPanelGo.SetActive(false);
+                    potionScreen.SetActive(false);
+
+                }
+                break;
+        }
+
     }
+    public void NayButtonEvent()
+    {
+        currentState = CustomerStates.CustomerSentAway;
+
+        customerPanelGo.SetActive(true);
+        alchemistPanelGo.SetActive(false);
+
+        SetTypingCoroutine(currentDialogue.badAnswer, customerDialogueText);
+
+        nayButton.onClick.RemoveListener(NayButtonEvent);
+        potionScreen.SetActive(false);
+    }
+
+
 
 
 }
