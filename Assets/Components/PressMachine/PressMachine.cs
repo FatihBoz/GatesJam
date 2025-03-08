@@ -13,10 +13,23 @@ public class PressMachine : MonoBehaviour
     public bool isObjectInPress;
 
     public Transform pressingPoint;
-    private 
+    public bool placed;
 
     void Update()
     {
+        if (PressingObject!=null && placed)
+        {
+            Draggable draggable = PressingObject.GetComponent<Draggable>();
+            if (!draggable.isDragging)
+            {
+                isObjectInPress = true;
+                PressingObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
+                PressingObject.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
+                PressingObject.transform.position = pressingPoint.position;
+                placed = false;
+                
+            }
+        }
         if (pressed && Time.time >= timer + pressTimer)
         {
             presser.DOMove(defaultPosition, 1f);
@@ -25,8 +38,14 @@ public class PressMachine : MonoBehaviour
     }
     public void Press()
     {
+        Draggable draggable = PressingObject.GetComponent<Draggable>();
+        draggable.canMove = false;
         defaultPosition = presser.position;
-        presser.DOLocalMoveY(-1f, 0.1f);
+        presser.DOLocalMoveY(-1f, 0.1f).OnComplete(()=>
+        {
+            draggable.canMove = true;
+        });
+        PressingObject.Press();
         pressed = true;
         timer=Time.time;
 
@@ -43,12 +62,23 @@ public class PressMachine : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.TryGetComponent<Pressable>(out var pressable) && !isObjectInPress)
+        {
+            PressingObject = pressable;
+            placed = true;
+        }
+    }
+   
+    private void OnTriggerExit2D(Collider2D collision)
+    {
         if (collision.TryGetComponent<Pressable>(out var pressable))
         {
-            Debug.Log("girdim");
-            PressingObject = pressable;
-            isObjectInPress = true;
-            PressingObject.transform.position = pressingPoint.position;
+            if (PressingObject == pressable)
+            {
+                PressingObject = null;
+                placed = false;
+                isObjectInPress = false;
+            }
         }
     }
 }
