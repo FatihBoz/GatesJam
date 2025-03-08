@@ -9,6 +9,8 @@ public class Scoop : MonoBehaviour
     [SerializeField] private Camera mainCam;
     [SerializeField] private ParticleSystem pourEffect;
     [SerializeField] private float initialPosReturnTime = 2f;
+    [SerializeField] private Animator anim;
+    [SerializeField] private Vector3 pourOffset;
 
     private IFillable fillableObj;
     private bool isDragging;
@@ -20,8 +22,9 @@ public class Scoop : MonoBehaviour
     {
         if (collision.TryGetComponent<ICauldron>(out var cauldron))
         {
-            if (cauldron.DecreaseScoopCount())
+            if (!isFilled && cauldron.DecreaseScoopCount())
             {
+                liquid.gameObject.SetActive(true);
                 liquid.color = cauldron.GetPotionColor();
                 isFilled = true;
             }
@@ -58,10 +61,12 @@ public class Scoop : MonoBehaviour
         if (fillableObj != null && !isPouring &&
             isFilled && !fillableObj.IsFilled)
         {
+            anim.SetBool("isPouring", true);    
             isPouring = true;
-            transform.position = fillableObj.FillPoint.position;
+            transform.position = fillableObj.FillPoint.position + pourOffset;
             pourEffect.Play();
             fillableObj.Fill(liquid.color,0.5f,2f);
+            liquid.gameObject.SetActive(false);
             isFilled = false;
             StartCoroutine(PourCooldown());
         }
@@ -94,7 +99,8 @@ public class Scoop : MonoBehaviour
     private IEnumerator PourCooldown()
     {
         yield return new WaitForSeconds(pourEffect.main.duration);
-        liquid.color = Color.white;
+        anim.SetBool("isPouring", false);   
+
         isPouring = false;  
         ReturnInitialPosition();
     }
