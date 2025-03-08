@@ -254,3 +254,5 @@ MonoBehaviour:
     width: 0
     height: 0
   IsMain: 1
+  mainWidth: 0
+  percentage: 0.92

@@ -5,7 +5,7 @@ public class Draggable : MonoBehaviour
     public bool isDragging;
     private Rigidbody2D rb;
 
-    public bool canMove;
+    public bool canMove=true;
     void Awake()
     {
         canMove = true;
