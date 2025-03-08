@@ -33,6 +33,8 @@ public class TableUI : MonoBehaviour
 
     public TextMeshProUGUI percentageOut;
 
+    public static float accuracy;
+
     //public TextMeshProUGUI ;
 
     int scale = 5;
@@ -67,9 +69,28 @@ public class TableUI : MonoBehaviour
 
     }
 
+    public void PlaceTargetRandomly()
+    {
+        //outerCircle = outerCircle.position;
+        //outerCircle.GetComponent<RectTransform>().rect.width = radius;
+
+
+        float angle = Random.Range(0f, 2f * Mathf.PI);
+
+        float distance = Random.Range(0f, maxRadius);
+
+        float x = distance * Mathf.Cos(angle);
+        float y = distance * Mathf.Sin(angle);
+
+
+        target.localPosition = new Vector3(0 + x, 0 + y);
+    }
+
     private void Update()
     {
-        percentageOut.text = "% " + (CalculatePercentageOfIntersection()*100).ToString("F2");
+        accuracy = CalculateAccuracy();
+
+        percentageOut.text = accuracy.ToString("F0") + "%";
 
         ConstrainCircle();
 
@@ -97,31 +118,6 @@ public class TableUI : MonoBehaviour
         }
     }
 
-    //void ConstrainCircle()
-    //{
-    //    // Outer circle'ın dünya pozisyonunu al
-    //    Vector2 center = outerCircle.position;
-
-    //    // Outer circle'ın boyutlarını al
-    //    Vector2 outerCircleSize = outerCircle.rect.size;
-
-    //    // Pointer'ın dünya pozisyonunu al
-    //    Vector2 pointerPosition = pointer.position;
-
-    //    // Outer circle ile pointer arasındaki mesafeyi hesapla
-    //    Vector2 directionToParent = pointerPosition - center;
-    //    float distance = directionToParent.magnitude;
-
-    //    // Eğer pointer outer circle'ın sınırını aşarsa
-    //    if (distance > maxRadius)
-    //    {
-    //        // Direction'ı normalize et ve outer circle'ın sınırına yerleştir
-    //        Vector2 newPosition = center + directionToParent.normalized * maxRadius;
-
-    //        // Pointer'ın yeni pozisyonunu set et
-    //        pointer.position = newPosition;
-    //    }
-    //}
 
     void ConstrainCircle()
     {
@@ -150,25 +146,6 @@ public class TableUI : MonoBehaviour
         }
     }
 
-
-
-    public void PlaceTargetRandomly()
-    {
-        //outerCircle = outerCircle.position;
-        //outerCircle.GetComponent<RectTransform>().rect.width = radius;
-
-
-        float angle = Random.Range(0f, 2f * Mathf.PI);
-
-        float distance = Random.Range(0f, maxRadius);
-
-        float x = distance * Mathf.Cos(angle);
-        float y = distance * Mathf.Sin(angle);
-
-
-        target.localPosition = new Vector3(0+x, 0 +y);
-    }
-
     float CalculateLocalDistance(RectTransform rect1, RectTransform rect2)
     {
         // RectTransform'ların yerel pozisyonlarını al
@@ -180,6 +157,12 @@ public class TableUI : MonoBehaviour
         return distance;
     }
 
+    public float CalculateAccuracy()
+    {
+        return Mathf.Max(0, 100 - (CalculateLocalDistance(pointer, target) / pointerRadius) * 100);
+    }
+
+    /*
     public float GetCircleIntersectionArea()
     {
         float r1 = pointerRadius;
@@ -214,7 +197,7 @@ public class TableUI : MonoBehaviour
         return GetCircleIntersectionArea() / areaOfPointers;
 
     }
-
+    */
     public static float GetCircleArea(float r)
     {
         return (float)(Mathf.PI * r * r); // Alan formülü: π * r^2
