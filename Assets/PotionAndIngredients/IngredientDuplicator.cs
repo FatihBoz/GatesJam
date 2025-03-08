@@ -11,7 +11,7 @@ public class IngredientDuplicator : MonoBehaviour
     private void OnMouseDown()
     {
         print("on mouse down");
-        getItem();
+        GetItem();
         isDragging = true;
     }
 
@@ -27,12 +27,12 @@ public class IngredientDuplicator : MonoBehaviour
     private void OnMouseUp()
     {
         isDragging = false;
-        dropItem();
+        DropItem();
         Debug.Log("Item deleted from Inventory");
 
     }
 
-    public void getItem()
+    public void GetItem()
     {
         InventoryItem inventoryItem;
         inventoryItem = InventorySystem.instance.SearchItem(ingrName);
@@ -51,7 +51,7 @@ public class IngredientDuplicator : MonoBehaviour
 
     }
 
-    public void dropItem()
+    public void DropItem()
     {
         //InventorySystem.instance.DelItem(ingrName.ToString(), 1);
     }
