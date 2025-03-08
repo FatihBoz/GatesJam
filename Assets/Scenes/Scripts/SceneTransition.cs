@@ -15,4 +15,22 @@ public class SceneTransition : MonoBehaviour
         isInLab = !isInLab;
     }
 
+    public void FinishLevel()
+    {
+        if (TableUI.accuracy > 70f)
+        {
+            InfluenceBar.increaseInfluence();
+
+        }
+        else
+        {
+            InfluenceBar.decreaseInfluence();
+        }
+    }
+
+    public void StartLevel()
+    {
+
+    }
+
 }
