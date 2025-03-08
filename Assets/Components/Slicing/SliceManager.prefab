@@ -45,4 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sliceEnabled: 0
+  sliceableLayer:
+    serializedVersion: 2
+    m_Bits: 512
   spritePrefab: {fileID: 991953942017285094, guid: 8992050c58238f742a6d025409bd0cd7, type: 3}

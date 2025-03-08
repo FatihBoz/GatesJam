@@ -1,16 +1,17 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class CutTheFuckUp : MonoBehaviour
+public class SliceManager : MonoBehaviour
 {
     public bool sliceEnabled = false;
+    public LayerMask sliceableLayer;
     public GameObject spritePrefab;
     void Update()
     {
         if (Input.GetMouseButtonDown(0) && sliceEnabled)
         {
             Vector2 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero);
+            RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero, float.PositiveInfinity, sliceableLayer);
 
             if (hit.collider != null)
             {
