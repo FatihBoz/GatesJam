@@ -30,9 +30,10 @@ public class Cauldron : MonoBehaviour, ICauldron
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        TableUI.GetComponent<TableUI>().IngredientsToTable(collision.GetComponent<InventoryItem>().ingredient);
-
-        print("The item affected cauldron : " + collision.GetComponent<InventoryItem>().ingredient.ingrName);
+        if (TableUI.TryGetComponent<TableUI>(out var tableUI))
+        {
+            tableUI.IngredientsToTable(collision.GetComponent<InventoryItem>().ingredient);
+        }
 
         Destroy(collision.gameObject);
     }

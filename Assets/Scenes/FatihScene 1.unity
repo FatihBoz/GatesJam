@@ -1299,7 +1299,7 @@ GameObject:
   - component: {fileID: 916948624}
   - component: {fileID: 916948623}
   m_Layer: 0
-  m_Name: Eye
+  m_Name: FrogEye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1332,7 +1332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44aa365a3af24294895b93bbf5302345, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingrName: eye
+  ingrName: frogeye
   mainCam: {fileID: 534669904}
 --- !u!61 &916948624
 BoxCollider2D:

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60aad2e060cf2654599fde2d4311e670, type: 3}
   m_Name: Hearth
   m_EditorClassIdentifier: 
-  ingrName: hearth
+  ingrName: heart
   ingrPrefab: {fileID: 3355841364834280753, guid: 15639961f0bd0f845bd40caa14b29db7, type: 3}
   Logically: -0.39
   Healthy: 0.18
