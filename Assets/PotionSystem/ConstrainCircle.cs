@@ -4,11 +4,18 @@ public class ConstrainCircle : MonoBehaviour
 {
     public float radius = 5f;  // Büyük cismin yarýçapý, küçük cismin sýnýrý
     private Transform parentTransform;  // Büyük cismin Transform'u
+    SpriteRenderer spriteRenderer;
+
 
     void Start()
     {
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
         // Küçük cismin parent'ýný al
         parentTransform = transform.parent;
+
+        radius = spriteRenderer.sprite.bounds.extents.x;
     }
 
     void Update()
