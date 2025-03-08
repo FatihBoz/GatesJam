@@ -12,6 +12,14 @@ PrefabInstance:
       propertyPath: ingredient
       value: 
       objectReference: {fileID: 11400000, guid: 3fcfb3068bf125e43a0f29cc29a02c02, type: 2}
+    - target: {fileID: 377123362721470286, guid: 0cb3bb4ec07da4f4a94625ccf73da91e, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 2.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 377123362721470286, guid: 0cb3bb4ec07da4f4a94625ccf73da91e, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2.07
+      objectReference: {fileID: 0}
     - target: {fileID: 2853240613106577312, guid: 0cb3bb4ec07da4f4a94625ccf73da91e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -60,16 +68,63 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 5813906374831676765, guid: a65ac6beb89f0884fb477b888a6ce239, type: 3}
-    - target: {fileID: 6802363748125065162, guid: 0cb3bb4ec07da4f4a94625ccf73da91e, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 2.38
-      objectReference: {fileID: 0}
-    - target: {fileID: 6802363748125065162, guid: 0cb3bb4ec07da4f4a94625ccf73da91e, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 2.07
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4274058166824730099, guid: 0cb3bb4ec07da4f4a94625ccf73da91e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -4641514117579367022}
   m_SourcePrefab: {fileID: 100100000, guid: 0cb3bb4ec07da4f4a94625ccf73da91e, type: 3}
+--- !u!1 &8559672995760749703 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4274058166824730099, guid: 0cb3bb4ec07da4f4a94625ccf73da91e, type: 3}
+  m_PrefabInstance: {fileID: 5591940753596301684}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &-4641514117579367022
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8559672995760749703}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.38, y: 2.07}
+    newSize: {x: 3.48, y: 2.01}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 2.38, y: 2.07}
+  m_EdgeRadius: 0

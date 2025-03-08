@@ -2,22 +2,16 @@ using UnityEngine;
 
 public class SceneTransition : MonoBehaviour
 {
-    [SerializeField] private Canvas labCanvas;
+    [SerializeField] private GameObject labScene;
+    [SerializeField] private GameObject shopScene;
 
-    [SerializeField] private int labCanvasSortingOrderMin;
-    [SerializeField] private int labCanvasSortingOrderMax;
     bool isInLab = false;
 
     public void OnSceneChangeButtonPressed()
     {
-        if (isInLab)
-        {
-            labCanvas.sortingOrder = labCanvasSortingOrderMin;
-        }
-        else
-        {
-            labCanvas.sortingOrder = labCanvasSortingOrderMax;
-        }
+        DialogueManager.Instance.SceneTransition();
+        shopScene.SetActive(isInLab);
+        labScene.SetActive(!isInLab);
         isInLab = !isInLab;
     }
 
