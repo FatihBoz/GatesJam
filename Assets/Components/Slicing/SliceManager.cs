@@ -58,6 +58,7 @@ public class SliceManager : MonoBehaviour
         {
             sliceable.size = sr.sprite.rect;
             sliceable.originalPosition = Vector2.zero;
+            sliceable.mainWidth = sliceable.size.width;
         }
 
         // Sol ve sağ parçalar için yeni GameObject oluştur
@@ -85,7 +86,11 @@ public class SliceManager : MonoBehaviour
         rightSC.size = rightRect;
         rightSC.originalPosition = new Vector2(leftRect.width + sliceable.originalPosition.x, sliceable.originalPosition.y);
         
-       
+        leftSC.mainWidth = sliceable.mainWidth;
+        rightSC.mainWidth = sliceable.mainWidth;
+
+        leftSC.percentage = leftRect.width / sliceable.mainWidth;
+        rightSC.percentage = rightRect.width / sliceable.mainWidth;
 
         try
         {
@@ -117,8 +122,8 @@ public class SliceManager : MonoBehaviour
         // Collider ekle
         Destroy(leftPart.GetComponent<Collider2D>());
         Destroy(rightPart.GetComponent<Collider2D>());
-        leftPart.AddComponent<PolygonCollider2D>();
-        rightPart.AddComponent<PolygonCollider2D>();
+        leftPart.AddComponent<BoxCollider2D>();
+        rightPart.AddComponent<BoxCollider2D>();
 
         leftPart.GetComponent<Draggable>().isDragging = false;
         rightPart.GetComponent<Draggable>().isDragging = false;

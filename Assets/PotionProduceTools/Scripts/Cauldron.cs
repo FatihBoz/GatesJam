@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Cauldron : MonoBehaviour, ICauldron
@@ -39,7 +40,13 @@ public class Cauldron : MonoBehaviour, ICauldron
         if (TableUI.TryGetComponent<TableUI>(out var tableUI) && collision.TryGetComponent<InventoryItem>(out var item))
         {
             triColor.AddColor(item.ingredient.color);
-            tableUI.IngredientsToTable(item.ingredient);
+            float percentage = 1f;
+            Sliceable sliceable = tableUI.GetComponent<Sliceable>();
+            if (sliceable!=null)
+            {
+                percentage = sliceable.percentage;
+            }
+            tableUI.IngredientsToTable(item.ingredient,percentage);
             Destroy(collision.gameObject);
         }
 

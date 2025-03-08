@@ -98,10 +98,14 @@ public class TableUI : MonoBehaviour
 
     public void IngredientsToTable(Ingredients ingr)
     {
-        LVec = ingr.Logically * LogicallyVec;
-        HVec = ingr.Healthy * HealthyVec;
-        SVec = ingr.Sweetness * SweetnessVec;
-        AVec = ingr.Acidity * AcidityVec;
+        IngredientsToTable(ingr,1f);
+    }
+    public void IngredientsToTable(Ingredients ingr,float percentage)
+    {
+        LVec = ingr.Logically * LogicallyVec * percentage;
+        HVec = ingr.Healthy * HealthyVec * percentage;
+        SVec = ingr.Sweetness * SweetnessVec * percentage;
+        AVec = ingr.Acidity * AcidityVec * percentage;
 
         ResultVec = (LVec + HVec + SVec + AVec) * offset;
 

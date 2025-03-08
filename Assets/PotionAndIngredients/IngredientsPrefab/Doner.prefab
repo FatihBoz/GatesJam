@@ -233,7 +233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDragging: 0
-  canMove: 0
+  canMove: 1
 --- !u!114 &-2770024723154171950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,4 +255,4 @@ MonoBehaviour:
     height: 0
   IsMain: 1
   mainWidth: 0
-  percentage: 0.92
+  percentage: 1
