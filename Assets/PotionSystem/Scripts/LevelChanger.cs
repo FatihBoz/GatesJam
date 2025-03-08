@@ -16,5 +16,10 @@ public class LevelChanger : MonoBehaviour
         }
     }
 
+    public void StartLevel()
+    {
+
+    }
+
 
 }

@@ -119,6 +119,59 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &273021988
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 273021989}
+  - component: {fileID: 273021990}
+  m_Layer: 0
+  m_Name: DialogueManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &273021989
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 273021988}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -14.380937, y: -13.430032, z: -10.130036}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &273021990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 273021988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8a86ccab80552e42ae7e77e002b40c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textSpeed: 0.1
+  potionScreen: {fileID: 0}
+  nayButton: {fileID: 0}
+  alchemistPanelGo: {fileID: 0}
+  customerPanelGo: {fileID: 0}
+  alchemistDialogueText: {fileID: 0}
+  customerNameText: {fileID: 0}
+  customerDialogueText: {fileID: 0}
+  exObject: {fileID: 0}
 --- !u!1 &491112402
 GameObject:
   m_ObjectHideFlags: 0
@@ -438,6 +491,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1833012428}
   - component: {fileID: 1833012427}
+  - component: {fileID: 1833012429}
   m_Layer: 0
   m_Name: Customer
   m_TagString: Untagged
@@ -509,12 +563,30 @@ Transform:
   m_GameObject: {fileID: 1833012426}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.36, y: -5.84, z: 0}
+  m_LocalPosition: {x: -9.36, y: -17.74, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1833012429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833012426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 029875b75047b9f49b26253cee7083c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customerSelector: {fileID: 11400000, guid: 6d1a244931f4c244298eb330d698a965, type: 2}
+  initialCustomerPosition: {fileID: 1386994132}
+  targetCustomerPosition: {fileID: 491112403}
+  popUpTime: 1
+  scientistInfluencePoints: 25
+  ordinaryNPCInfluencePoints: 10
 --- !u!4 &524549237480452413
 Transform:
   m_ObjectHideFlags: 0
@@ -929,3 +1001,4 @@ SceneRoots:
   - {fileID: 1833012428}
   - {fileID: 491112403}
   - {fileID: 1386994132}
+  - {fileID: 273021989}
