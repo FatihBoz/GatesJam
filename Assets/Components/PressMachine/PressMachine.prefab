@@ -597,7 +597,7 @@ MonoBehaviour:
   presser: {fileID: 4992666899683619151}
   pressTimer: 1
   PressingObject: {fileID: 0}
-  isObjectInPress: 1
+  isObjectInPress: 0
   pressingPoint: {fileID: 3151483006202491195}
   placed: 0
 --- !u!61 &6688204385357041819
