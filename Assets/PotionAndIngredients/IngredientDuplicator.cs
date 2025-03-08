@@ -11,10 +11,8 @@ public class IngredientDuplicator : MonoBehaviour
     private void OnMouseDown()
     {
         print("on mouse down");
-        GetItem();
-        isDragging = true;
+        GetItem();  
     }
-
     private void Update()
     {
         if (isDragging && currentIngredient != null)
@@ -26,10 +24,8 @@ public class IngredientDuplicator : MonoBehaviour
 
     private void OnMouseUp()
     {
-        isDragging = false;
         DropItem();
         Debug.Log("Item deleted from Inventory");
-
     }
 
     public void GetItem()
@@ -54,5 +50,10 @@ public class IngredientDuplicator : MonoBehaviour
     public void DropItem()
     {
         //InventorySystem.instance.DelItem(ingrName.ToString(), 1);
+    }
+
+    public bool GetIsDragging()
+    {
+        return isDragging;
     }
 }

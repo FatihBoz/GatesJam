@@ -19,4 +19,9 @@ public class HoldManager : MonoBehaviour
     {
         
     }
+
+    public bool CurrentIsDragging()
+    {
+        return currentItem.GetIsDragging();
+    }
 }

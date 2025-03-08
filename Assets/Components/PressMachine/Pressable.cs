@@ -13,10 +13,10 @@ public class Pressable : MonoBehaviour
     }
     public void Press()
     {
-        if (currentStage<sprites.Length-1)
+        if (currentStage<sprites.Length)
         {
-            currentStage++;
             spriteRenderer.sprite = sprites[currentStage];
+            currentStage++;
         }
     }
     public bool IsOnLastStage()

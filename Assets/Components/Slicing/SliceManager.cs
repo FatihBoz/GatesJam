@@ -13,18 +13,31 @@ using UnityEngine;
 public class SliceManager : MonoBehaviour
 {
     public bool sliceEnabled = false;
-    public LayerMask sliceableLayer;
+    public LayerMask ingredientLayer;
     public GameObject spritePrefab;
+
+    private ChoppingBoard choppingBoard;
+
+    public List<GameObject> slicedObjects = new List<GameObject>();
+
+    public Chopper chopper;
+    private void Start()
+    {
+        choppingBoard = GetComponent<ChoppingBoard>();
+    }
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && sliceEnabled)
+        if (Input.GetMouseButtonDown(1) && sliceEnabled && chopper.IsChopperOnHand())
         {
             Vector2 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero, float.PositiveInfinity, sliceableLayer);
+            RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero,float.PositiveInfinity,ingredientLayer);
 
             if (hit.collider != null)
             {
-                SliceObject(hit.collider.gameObject, worldPoint);
+                if (slicedObjects.Contains(hit.collider.gameObject))
+                {
+                    SliceObject(hit.collider.gameObject, worldPoint);
+                }
             }
         }
     }
@@ -48,8 +61,8 @@ public class SliceManager : MonoBehaviour
         }
 
         // Sol ve sağ parçalar için yeni GameObject oluştur
-        GameObject leftPart = Instantiate(spritePrefab, obj.transform.position, Quaternion.identity);
-        GameObject rightPart = Instantiate(spritePrefab, obj.transform.position, Quaternion.identity);
+        GameObject leftPart = Instantiate(obj, obj.transform.position, Quaternion.identity);
+        GameObject rightPart = Instantiate(obj, obj.transform.position, Quaternion.identity);
         leftPart.transform.localScale = obj.transform.localScale;
         rightPart.transform.localScale = obj.transform.localScale;
 
@@ -89,12 +102,12 @@ public class SliceManager : MonoBehaviour
         // Parçaları doğru konuma kaydır
         float sliceXLocal = slicePoint.x - obj.transform.position.x;
         leftPart.transform.position = new Vector3(
-            (-.002f * halfWidth) + obj.transform.position.x + (sliceXLocal - halfWidth) / 2f,
+            obj.transform.position.x + (sliceXLocal - halfWidth) / 2f,
             obj.transform.position.y,
             obj.transform.position.z
         );
         rightPart.transform.position = new Vector3(
-            (.002f * halfWidth) + obj.transform.position.x + (sliceXLocal + halfWidth) / 2f,
+            obj.transform.position.x + (sliceXLocal + halfWidth) / 2f,
             obj.transform.position.y,
             obj.transform.position.z
         );
@@ -102,9 +115,16 @@ public class SliceManager : MonoBehaviour
         leftPart.transform.rotation = obj.transform.rotation;
         rightPart.transform.rotation = obj.transform.rotation;
         // Collider ekle
-        leftPart.AddComponent<BoxCollider2D>();
-        rightPart.AddComponent<BoxCollider2D>();
+        Destroy(leftPart.GetComponent<Collider2D>());
+        Destroy(rightPart.GetComponent<Collider2D>());
+        leftPart.AddComponent<PolygonCollider2D>();
+        rightPart.AddComponent<PolygonCollider2D>();
 
+        leftPart.GetComponent<Draggable>().isDragging = false;
+        rightPart.GetComponent<Draggable>().isDragging = false;
+
+        choppingBoard.AddItem(leftSC);
+        choppingBoard.AddItem(rightSC);
         // Orijinal objeyi yok et
         Destroy(obj);
     }
