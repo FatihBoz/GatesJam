@@ -31,8 +31,7 @@ Transform:
   m_LocalPosition: {x: -12.98, y: 8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
-  m_Children:
-  - {fileID: 6581920095360948395}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2439572117743244841
@@ -150,6 +149,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+<<<<<<< Updated upstream
 --- !u!1001 &9117803947086842072
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -268,3 +268,5 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2729004447072686195, guid: 37a088c0e6d57f44fa67b7c513505270, type: 3}
   m_PrefabInstance: {fileID: 9117803947086842072}
   m_PrefabAsset: {fileID: 0}
+=======
+>>>>>>> Stashed changes

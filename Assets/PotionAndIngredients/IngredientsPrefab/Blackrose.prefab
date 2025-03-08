@@ -56,6 +56,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blackrose
       objectReference: {fileID: 0}
+    - target: {fileID: 5587474229431222290, guid: 0cb3bb4ec07da4f4a94625ccf73da91e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 5813906374831676765, guid: a65ac6beb89f0884fb477b888a6ce239, type: 3}
+    - target: {fileID: 6802363748125065162, guid: 0cb3bb4ec07da4f4a94625ccf73da91e, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 2.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 6802363748125065162, guid: 0cb3bb4ec07da4f4a94625ccf73da91e, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2.07
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

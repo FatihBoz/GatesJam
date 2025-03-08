@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Soul
   m_EditorClassIdentifier: 
   ingrName: soul
-  Logically: -0.6
+  ingrPrefab: {fileID: 3355841364834280753, guid: eeccddee142848c49a656d51c27cf796, type: 3}
+  Logically: -0.82
   Healthy: 0
-  Sweetness: 0
+  Sweetness: -0.74
   Acidity: 0

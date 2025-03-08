@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Brain
   m_EditorClassIdentifier: 
   ingrName: brain
+  ingrPrefab: {fileID: 3355841364834280753, guid: 1a30cb9b078eb1f47a1a3ac77ca6b365, type: 3}
   Logically: 0.7
   Healthy: 0.2
   Sweetness: 0
-  Acidity: 0.12
+  Acidity: -0.32

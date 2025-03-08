@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Soap
   m_EditorClassIdentifier: 
   ingrName: soap
+  ingrPrefab: {fileID: 3355841364834280753, guid: 9b81dc86433cd0945b2f75e5e6287f2e, type: 3}
   Logically: 0
   Healthy: -0.5
   Sweetness: 0

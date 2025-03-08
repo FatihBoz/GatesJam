@@ -46,6 +46,8 @@ public class InventorySystem : MonoBehaviour
 
             Inventory.Add(iitem);
 
+            //print("Item added to Inventory : " + iitem.ingredient.ingrName);
+
             //Inventory.Add(new InventoryItem { ingredient = ingr, quantity = 99 });
 
         }
@@ -89,10 +91,12 @@ public class InventorySystem : MonoBehaviour
 
     public InventoryItem SearchItem(string ItemName)
     {
+        print(ItemName + " Item searching...");
         foreach (var data in Inventory)
         {
             if (data.ingredient.ingrName == ItemName)
             {
+                print(data.ingredient.ingrName + " Item founded...");
                 return data;
             }
         }

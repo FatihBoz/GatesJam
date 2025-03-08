@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Bee
   m_EditorClassIdentifier: 
   ingrName: bee
+  ingrPrefab: {fileID: 8969489671376632791, guid: 758b2ca86d38ce74ca1d2bb7dff024d4, type: 3}
   Logically: 0
   Healthy: 0
   Sweetness: 0.3

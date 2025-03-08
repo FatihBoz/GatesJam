@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: BlackRose
   m_EditorClassIdentifier: 
   ingrName: blackrose
-  ingrPrefab: {fileID: 0}
+  ingrPrefab: {fileID: 8559672995760749703, guid: e03f4c06cdb98f547b64f8487133a9b2, type: 3}
   Logically: 0
   Healthy: 0
   Sweetness: 0
-  Acidity: 0
+  Acidity: 0.53

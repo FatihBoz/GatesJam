@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingrName: doner
   ingrPrefab: {fileID: 1472335413227976648, guid: e12ce5f817861c8409a4965a3edc7691, type: 3}
-  Logically: -0.39
-  Healthy: 1
+  Logically: -0.89
+  Healthy: 0.87
   Sweetness: 0
   Acidity: 0.2

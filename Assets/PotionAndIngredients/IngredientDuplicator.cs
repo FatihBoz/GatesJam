@@ -43,7 +43,7 @@ public class IngredientDuplicator : MonoBehaviour
                 currentIngredient = Instantiate(inventoryItem.ingredient.ingrPrefab, transform.position, Quaternion.identity);
                 InventorySystem.instance.DelItem(ingrName, 1);
 
-                Debug.Log("Item Spawned and reduced quantity from Inventory. ");
+                Debug.Log("Item : " + inventoryItem.ingredient.ingrName + " Spawned and reduced quantity from Inventory. ");
             }
         }
 

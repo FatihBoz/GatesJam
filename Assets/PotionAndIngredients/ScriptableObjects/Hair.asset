@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Hair
   m_EditorClassIdentifier: 
   ingrName: hair
-  ingrPrefab: {fileID: 0}
-  Logically: 0
-  Healthy: 0
-  Sweetness: 0
-  Acidity: 0
+  ingrPrefab: {fileID: 3355841364834280753, guid: 5e7e8be6b0e584244b0aff016765daa9, type: 3}
+  Logically: 0.4
+  Healthy: 0.18
+  Sweetness: -0.27
+  Acidity: -0.16
