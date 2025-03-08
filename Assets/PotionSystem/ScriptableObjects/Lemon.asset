@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60aad2e060cf2654599fde2d4311e670, type: 3}
   m_Name: Lemon
   m_EditorClassIdentifier: 
+  ingrName: lemon
+  ingrPrefab: {fileID: 3355841364834280753, guid: 96c12e58b96d1f5478e4f7b214279d2f, type: 3}
   Logically: 0
   Healthy: 0.61
   Sweetness: -0.18
