@@ -23,6 +23,6 @@ public class Cauldron : MonoBehaviour, ICauldron
 
     public Color GetPotionColor()
     {
-        return Color.green;
+        return Color.magenta;
     }
 }
