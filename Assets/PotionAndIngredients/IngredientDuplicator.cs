@@ -1,12 +1,22 @@
+using TMPro;
 using UnityEngine;
 
 public class IngredientDuplicator : MonoBehaviour
 {
     public string ingrName;
-    //[SerializeField] private GameObject InventoryItem;
     [SerializeField] private Camera mainCam;
     GameObject currentIngredient;
     private bool isDragging;
+
+    public TextMeshProUGUI amount;
+
+    InventoryItem inventoryItem;
+
+
+    private void Start()
+    {
+        inventoryItem = InventorySystem.instance.SearchItem(ingrName);
+    }
 
     private void OnMouseDown()
     {
@@ -20,40 +30,45 @@ public class IngredientDuplicator : MonoBehaviour
             currentIngredient.transform.position = mainCam.ScreenToWorldPoint(Input.mousePosition);
             currentIngredient.transform.position = new Vector3(currentIngredient.transform.position.x, currentIngredient.transform.position.y, 0);
         }
-    }
 
+        UpdateText();
+    }
+    /*
     private void OnMouseUp()
     {
-        DropItem();
         Debug.Log("Item deleted from Inventory");
     }
-
+    */
     public void GetItem()
     {
-        InventoryItem inventoryItem;
-        inventoryItem = InventorySystem.instance.SearchItem(ingrName);
         if (inventoryItem != null)
         {
             if (inventoryItem.quantity > 0)
             {
+                inventoryItem = InventorySystem.instance.SearchItem(ingrName);
+
                 currentIngredient = Instantiate(inventoryItem.ingredient.ingrPrefab, transform.position, Quaternion.identity);
                 InventorySystem.instance.DelItem(ingrName, 1);
+                UpdateText();
 
                 Debug.Log("Item : " + inventoryItem.ingredient.ingrName + " Spawned and reduced quantity from Inventory. ");
             }
         }
-
-
-
     }
 
-    public void DropItem()
-    {
-        //InventorySystem.instance.DelItem(ingrName.ToString(), 1);
-    }
+
 
     public bool GetIsDragging()
     {
         return isDragging;
+    }
+
+    public void UpdateText()
+    {
+        if (inventoryItem != null)
+        {
+            amount.text = inventoryItem.quantity.ToString();
+        }
+            
     }
 }

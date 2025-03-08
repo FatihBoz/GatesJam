@@ -14,6 +14,9 @@ public class InventorySystem : MonoBehaviour
     public List<Ingredients> ingredients;
     private void Awake()
     {
+        DefineItemsToInventory();
+
+
         // Check if an instance already exists
         if (instance == null)
         {
@@ -27,10 +30,6 @@ public class InventorySystem : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        DefineItemsToInventory();
-    }
 
     public void DefineItemsToInventory()
     {
