@@ -20,6 +20,7 @@ public class Scoop : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        print("trigger giriþ");
         if (collision.TryGetComponent<ICauldron>(out var cauldron))
         {
             if (!isFilled && cauldron.DecreaseScoopCount())
