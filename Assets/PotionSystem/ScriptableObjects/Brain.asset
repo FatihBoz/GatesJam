@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60aad2e060cf2654599fde2d4311e670, type: 3}
   m_Name: Brain
   m_EditorClassIdentifier: 
+  ingrName: brain
   Logically: 0.7
   Healthy: 0.2
   Sweetness: 0
