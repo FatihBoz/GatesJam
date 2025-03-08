@@ -38,14 +38,23 @@ public class PressMachine : MonoBehaviour
     }
     public void Press()
     {
-        Draggable draggable = PressingObject.GetComponent<Draggable>();
-        draggable.canMove = false;
-        defaultPosition = presser.position;
-        presser.DOLocalMoveY(-1f, 0.1f).OnComplete(()=>
+        if (isObjectInPress)
         {
-            draggable.canMove = true;
-        });
-        PressingObject.Press();
+            Draggable draggable = PressingObject.GetComponent<Draggable>();
+            draggable.canMove = false;
+            defaultPosition = presser.position;
+            presser.DOLocalMoveY(-1f, 0.1f).OnComplete(() =>
+            {
+                draggable.canMove = true;
+            });
+            PressingObject.Press();
+        }
+        else
+        {
+            defaultPosition = presser.position;
+            presser.DOLocalMoveY(-1f, 0.1f);
+        }
+        
         pressed = true;
         timer=Time.time;
 
