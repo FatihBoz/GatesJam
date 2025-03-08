@@ -19,6 +19,7 @@ public class Scoop : MonoBehaviour
     private bool isDragging;
     private bool isPouring = false;
     private bool isFilled = false;
+    private float successRate;
 
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -27,6 +28,7 @@ public class Scoop : MonoBehaviour
         {
             if (!isFilled && cauldron.DecreaseScoopCount())
             {
+                successRate = TableUI.accuracy;
                 liquid.gameObject.SetActive(true);
                 liquid.color = cauldron.GetPotionColor();
                 ChangeParticleSystemColors();
@@ -78,7 +80,7 @@ public class Scoop : MonoBehaviour
             isPouring = true;
             transform.position = fillableObj.FillPoint.position + pourOffset;
             pourEffect.Play();
-            fillableObj.Fill(liquid.color,0.5f,2f);
+            fillableObj.Fill(liquid.color,0.5f,2f, successRate);
             liquid.gameObject.SetActive(false);
             isFilled = false;
             StartCoroutine(PourCooldown());
