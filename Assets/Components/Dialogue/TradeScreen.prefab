@@ -438,7 +438,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textSpeed: 0.02
   potionScreen: {fileID: 3888245672667404322}
-  nayButton: {fileID: 0}
+  nayButton: {fileID: 7577194166996739379}
   alchemistPanelGo: {fileID: 4505458921768148507}
   customerPanelGo: {fileID: 8186818196868262033}
   alchemistDialogueText: {fileID: 8387509400318341740}
@@ -594,7 +594,7 @@ GameObject:
   - component: {fileID: 1523502632887185043}
   - component: {fileID: 7577194166996739379}
   m_Layer: 5
-  m_Name: Button
+  m_Name: NayButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -617,7 +617,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 707.9998, y: -213.99995}
+  m_AnchoredPosition: {x: -636, y: -419}
   m_SizeDelta: {x: 537.4254, y: 115.474}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8196817108529291620
@@ -865,7 +865,7 @@ RectTransform:
   m_GameObject: {fileID: 7312808955678494405}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8028014561244445159}
@@ -873,8 +873,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 699, y: 105}
-  m_SizeDelta: {x: 289.29956, y: 190.56}
+  m_AnchoredPosition: {x: 699, y: -420}
+  m_SizeDelta: {x: 289.29956, y: 26.839996}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2654116736863405669
 CanvasRenderer:
@@ -931,7 +931,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3722593534063541503
 RectTransform:
   m_ObjectHideFlags: 0

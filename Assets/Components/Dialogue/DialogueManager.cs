@@ -99,7 +99,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
-        if (currentDialogue == null)
+        if (currentDialogue == null)  
         {
             return;
         }

@@ -1,18 +1,23 @@
-using DG.Tweening;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SceneTransition : MonoBehaviour
 {
-    [SerializeField] private GameObject shopScene;
-    [SerializeField] private GameObject labScene;
+    [SerializeField] private Canvas labCanvas;
 
+    [SerializeField] private int labCanvasSortingOrderMin;
+    [SerializeField] private int labCanvasSortingOrderMax;
     bool isInLab = false;
 
     public void OnSceneChangeButtonPressed()
     {
-        shopScene.SetActive(isInLab);
-        labScene.SetActive(!isInLab);
+        if (isInLab)
+        {
+            labCanvas.sortingOrder = labCanvasSortingOrderMin;
+        }
+        else
+        {
+            labCanvas.sortingOrder = labCanvasSortingOrderMax;
+        }
         isInLab = !isInLab;
     }
 
