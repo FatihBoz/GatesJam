@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public enum CustomerStates
@@ -12,7 +14,8 @@ public enum CustomerStates
     ReceivedPotion,
     CustomerResponseToPotion,
     CustomerSentAway,
-    Nothing
+    CustomerFullyGone,
+    NextCustomerWaiting
 }
 
 
@@ -39,6 +42,8 @@ public class DialogueManager : MonoBehaviour
     private Coroutine typingCoroutine;
     private CustomerStates currentState;
 
+    public static Action CustomerGoneEvent;
+
     private void Awake()
     {
         if (Instance == null)
@@ -53,7 +58,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Start()
     {
-        StartDialogue(exObject);
+    //   StartDialogue(exObject);
     }
 
     public void StartDialogue(DialogueObject dialogueObject)
@@ -108,7 +113,7 @@ public class DialogueManager : MonoBehaviour
                 }
                 break;
             case CustomerStates.WaitingForPotion:
-                Debug.Log("waiting potion");
+             //   Debug.Log("waiting potion");
                 // if receveid potion, if answer no go to customer sent away state
                 if (Input.GetKeyDown(KeyCode.Space)) // gived potion
                 {
@@ -123,10 +128,10 @@ public class DialogueManager : MonoBehaviour
                 }
                 break;
             case CustomerStates.ReceivedPotion:
-                Debug.Log("received potion");
+              //  Debug.Log("received potion");
                 if (!isTyping && Input.GetMouseButtonDown(0))
                 {
-                    currentState = CustomerStates.Nothing;
+                    currentState = CustomerStates.CustomerFullyGone;
                     customerPanelGo.SetActive(true);
                     alchemistPanelGo.SetActive(false);
                     potionScreen.SetActive(false);
@@ -136,28 +141,41 @@ public class DialogueManager : MonoBehaviour
                 // check potion bad or good. answer according to that.
                 break;
             case CustomerStates.CustomerResponseToPotion:
-                Debug.Log("customer response to potion");
+               // Debug.Log("customer response to potion");
                 // if answer no in waiting for potion state, go to customer sent away state
                 if (!isTyping && Input.GetMouseButtonDown(0))
                 {
-                    currentState = CustomerStates.Nothing;
+                    currentState = CustomerStates.CustomerFullyGone;
                     customerPanelGo.SetActive(true);
                     alchemistPanelGo.SetActive(false);
                     potionScreen.SetActive(false);
-                    SetTypingCoroutine(currentDialogue.badAnswer, customerDialogueText); // good or bad answer will change
+                    SetTypingCoroutine(currentDialogue.badAnswer, customerDialogueText);
+                    // TODO: good or bad answer will change
 
                 }
                 break;
             case CustomerStates.CustomerSentAway:
-                Debug.Log("customer sent away");
+                //Debug.Log("customer sent away");
                 // if answer no in waiting for potion state, go to customer sent away state
                 if (!isTyping && Input.GetMouseButtonDown(0))
                 {
-                    currentState = CustomerStates.Nothing;
+                    currentState = CustomerStates.NextCustomerWaiting;
+                    CustomerGoneEvent?.Invoke();
                     customerPanelGo.SetActive(false);
                     alchemistPanelGo.SetActive(false);
                     potionScreen.SetActive(false);
 
+                }
+                break;
+            case CustomerStates.CustomerFullyGone:
+                if (!isTyping && Input.GetMouseButtonDown(0))
+                {
+                    customerPanelGo.SetActive(false);
+                    alchemistPanelGo.SetActive(false);
+                    potionScreen.SetActive(false);
+
+                    currentState = CustomerStates.NextCustomerWaiting;
+                    CustomerGoneEvent?.Invoke();
                 }
                 break;
         }
