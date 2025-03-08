@@ -6,6 +6,8 @@ public class Cauldron : MonoBehaviour, ICauldron
 
     private int currentScoopCount;
 
+    public GameObject TableUI;
+
     private void Start()
     {
         currentScoopCount = maxScoopCountToFill;
@@ -24,5 +26,14 @@ public class Cauldron : MonoBehaviour, ICauldron
     public Color GetPotionColor()
     {
         return Color.magenta;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        TableUI.GetComponent<TableUI>().IngredientsToTable(collision.GetComponent<InventoryItem>().ingredient);
+
+        print("The item affected cauldron : " + collision.GetComponent<InventoryItem>().ingredient.ingrName);
+
+        Destroy(collision.gameObject);
     }
 }
