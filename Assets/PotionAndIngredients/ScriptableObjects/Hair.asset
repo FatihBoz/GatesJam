@@ -16,6 +16,6 @@ MonoBehaviour:
   ingrPrefab: {fileID: 3355841364834280753, guid: 5e7e8be6b0e584244b0aff016765daa9, type: 3}
   Logically: 0.4
   Healthy: 0.18
-  Sweetness: -0.27
+  Sweetness: 0.65
   Acidity: -0.16
   color: {r: 0.64265364, g: 0.7688679, b: 0.14506939, a: 1}
