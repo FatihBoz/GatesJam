@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class IngredientDuplicator : MonoBehaviour
 {
@@ -19,17 +20,19 @@ public class IngredientDuplicator : MonoBehaviour
 
     private List<TextMeshProUGUI> ingredientTextFields;
 
+    private List<Image> ingredientArrows;
+
     private void Awake()
     {
         ingredientTextFields = new List<TextMeshProUGUI>(ingredientPropPrefab.GetComponentsInChildren<TextMeshProUGUI>());
+
+        //ingredientArrows = new List<Image>(ingredientPropPrefab.GetComponentsInChildren<Image>());
         
         UpdateProps();
     }
     private void Start()
     {
         inventoryItem = InventorySystem.instance.SearchItem(ingrName);
-
-
     }
 
     private void OnMouseDown()
@@ -105,14 +108,32 @@ public class IngredientDuplicator : MonoBehaviour
             // Bu sýralama, sýrasýyla Acidity, Density, Viscosity ve Temperature deðerlerinin TextMeshPro component'larýna atanmasýný saðlar.
             var properties = new List<float> { ingredient.Logically, ingredient.Healthy, ingredient.Sweetness, ingredient.Acidity };
 
+            /*
+            for(int i= 0; i <ingredientArrows.Count && i < properties.Count; i++)
+            {
+                SetScale(ingredientArrows[i], properties[i]);
+            }
+            */
+            //SetScale(0.75f);
+
             for (int i = 0; i < ingredientTextFields.Count && i < properties.Count; i++)
             {
                 ingredientTextFields[i].text = properties[i].ToString("F1"); // Ýki ondalýklý olarak göster
             }
+
         }
     }
-    
+    /*
+    public void SetScale(Image UI, float incomingValue)
+    {
+        // incomingValue'nin 0-1 aralýðýnda olduðundan emin ol
+        incomingValue = Mathf.Clamp01(incomingValue);
 
-    
+        // Ölçekleme iþlemi
+        UI.transform.localScale = new Vector3(incomingValue, incomingValue, 1);
+    }
+
+    */
+
 
 }
