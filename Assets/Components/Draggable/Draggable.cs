@@ -6,11 +6,12 @@ public class Draggable : MonoBehaviour
     private Rigidbody2D rb;
 
     public bool canMove=true;
+    public bool doesStartDragging = true;
     void Awake()
     {
         canMove = true;
         rb =GetComponent<Rigidbody2D>();
-        isDragging = true;
+        isDragging = doesStartDragging;
     }
     private void OnMouseDown()
     {

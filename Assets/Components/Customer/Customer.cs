@@ -23,6 +23,8 @@ public class Customer : MonoBehaviour
     [SerializeField] private float scientistInfluencePoints = 25;
     [SerializeField] private float ordinaryNPCInfluencePoints = 10;
 
+    public static Action<float> CustomerPotionReceived;
+
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -78,4 +80,23 @@ public class Customer : MonoBehaviour
         //MÜÞTERÝ GÝTTÝ EVENT ABONELÝÐÝ KALDIR
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (DialogueManager.Instance.WaitingForPotion)
+        {
+           
+        // degisicek
+        if (collision.TryGetComponent<Bottle>(out var bottle))
+            {
+
+            if (!bottle.GetComponent<Draggable>().isDragging)
+                {
+                    CustomerPotionReceived?.Invoke(bottle.SuccessRate);
+                    Destroy(bottle.gameObject);
+                }
+            }
+
+
+        }
+    }
 }

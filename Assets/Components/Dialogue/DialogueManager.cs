@@ -43,11 +43,16 @@ public class DialogueManager : MonoBehaviour
     private Coroutine typingCoroutine;
     private CustomerStates currentState;
 
+    private bool potionReceived;
+    private bool goodResponse;
+
     public static Action CustomerGoneEvent;
 
 
     private string currentText;
     private TMP_Text currentTextTarget;
+
+    public bool WaitingForPotion { get; private set; }
 
     private void Awake()
     {
@@ -120,6 +125,7 @@ public class DialogueManager : MonoBehaviour
             case CustomerStates.CustomerArrived:
                 if (!isTyping)
                 {
+                    WaitingForPotion = true;
                     currentState = CustomerStates.WaitingForPotion;
                     // enable potion screen
                     potionScreen.SetActive(true);
@@ -129,12 +135,11 @@ public class DialogueManager : MonoBehaviour
             case CustomerStates.WaitingForPotion:
              //   Debug.Log("waiting potion");
                 // if receveid potion, if answer no go to customer sent away state
-                if (Input.GetKeyDown(KeyCode.Space)) // gived potion
+                if (potionReceived) // gived potion
                 {
-
-
+                    WaitingForPotion = false;
                     currentState = CustomerStates.ReceivedPotion;
-
+                    potionReceived = false;
                     customerPanelGo.SetActive(false);
                     alchemistPanelGo.SetActive(true);
                     potionScreen.SetActive(false);
@@ -149,7 +154,16 @@ public class DialogueManager : MonoBehaviour
                     customerPanelGo.SetActive(true);
                     alchemistPanelGo.SetActive(false);
                     potionScreen.SetActive(false);
-                    SetTypingCoroutine(currentDialogue.goodAnswer, customerDialogueText); // good or bad answer will change
+                    if (goodResponse)
+                    {
+                        SetTypingCoroutine(currentDialogue.goodAnswer, customerDialogueText);
+                    }
+                    else
+                    {
+                        SetTypingCoroutine(currentDialogue.badAnswer, customerDialogueText);
+
+                    }
+                    //SetTypingCoroutine(currentDialogue.goodAnswer, customerDialogueText); // good or bad answer will change
 
                     // TODO: good or bad answer will change
 
@@ -210,6 +224,22 @@ public class DialogueManager : MonoBehaviour
         potionScreen.SetActive(false);
     }
 
+    private void OnEnable()
+    {
+        Customer.CustomerPotionReceived += Dialogue_CustomerPotionReceived;
+    }
+
+    private void OnDisable()
+    {
+        Customer.CustomerPotionReceived -= Dialogue_CustomerPotionReceived;
+    }
+
+    public void Dialogue_CustomerPotionReceived(float successRate)
+    {
+        Debug.Log("worked");
+        potionReceived = true;
+        goodResponse = successRate >= 70f;
+    }
 
 
 
