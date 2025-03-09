@@ -161,10 +161,12 @@ public class DialogueManager : MonoBehaviour
                     potionScreen.SetActive(false);
                     if (goodResponse)
                     {
+                        SoundAffects.Instance.PlayMaleWinSF();
                         SetTypingCoroutine(currentDialogue.goodAnswer, customerDialogueText);
                     }
                     else
                     {
+                        SoundAffects.Instance.PlayMaleLoseSF();
                         SetTypingCoroutine(currentDialogue.badAnswer, customerDialogueText);
 
                     }
