@@ -217,7 +217,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d747a4aac3f1fe740bcca553f4827367, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprites: []
+  sprites:
+  - {fileID: 3194569316663629199, guid: c7a1186160634f140be23e6118148796, type: 3}
 --- !u!114 &-4946520186493061508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,6 +233,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDragging: 0
   canMove: 1
+  doesStartDragging: 1
 --- !u!114 &-2770024723154171950
 MonoBehaviour:
   m_ObjectHideFlags: 0

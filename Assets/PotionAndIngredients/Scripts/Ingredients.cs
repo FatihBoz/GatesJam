@@ -15,6 +15,7 @@ public class Ingredients : ScriptableObject
     public float Sweetness;
     [Range(-1f, 1f)]
     public float Acidity;
+
     public Color color;
 
 }
