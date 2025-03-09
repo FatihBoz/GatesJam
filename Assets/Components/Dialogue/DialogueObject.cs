@@ -14,5 +14,6 @@ public class DialogueObject : ScriptableObject
     public string goodAnswer;
     [TextArea(3, 10)]
     public string badAnswer;
+    public bool isMale = true;
 }
 

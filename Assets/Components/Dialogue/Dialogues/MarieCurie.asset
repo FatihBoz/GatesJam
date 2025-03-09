@@ -18,3 +18,4 @@ MonoBehaviour:
     elements.
   goodAnswer: Perfect, thank you! I will finally win the Nobel Prize.
   badAnswer: I am disappointed in you. You radiate weakness.
+  isMale: 0
