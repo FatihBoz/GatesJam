@@ -128,6 +128,9 @@ public class SliceManager : MonoBehaviour
         leftPart.GetComponent<Draggable>().isDragging = false;
         rightPart.GetComponent<Draggable>().isDragging = false;
 
+        leftPart.transform.parent = obj.transform.parent;
+        rightPart.transform.parent = obj.transform.parent;
+
         choppingBoard.AddItem(leftSC);
         choppingBoard.AddItem(rightSC);
         // Orijinal objeyi yok et
