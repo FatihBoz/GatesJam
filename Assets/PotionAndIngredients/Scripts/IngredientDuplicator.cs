@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class IngredientDuplicator : MonoBehaviour
 {
@@ -17,11 +18,11 @@ public class IngredientDuplicator : MonoBehaviour
 
     public ScriptableObject ScriptableObject;
 
-    private List<TextMeshProUGUI> ingredientTextFields;
+    private List<RectTransform> ingredientTextFields;
 
     private void Awake()
     {
-        ingredientTextFields = new List<TextMeshProUGUI>(ingredientPropPrefab.GetComponentsInChildren<TextMeshProUGUI>());
+        //ingredientTextFields = new List<RectTransform>(ingredientPropPrefab.GetComponentsInChildren<RectTransform>());
         
         UpdateProps();
     }
@@ -104,10 +105,14 @@ public class IngredientDuplicator : MonoBehaviour
             // Bu sýralama, sýrasýyla Acidity, Density, Viscosity ve Temperature deðerlerinin TextMeshPro component'larýna atanmasýný saðlar.
             var properties = new List<float> { ingredient.Logically, ingredient.Healthy, ingredient.Sweetness, ingredient.Acidity };
 
-            for (int i = 0; i < ingredientTextFields.Count && i < properties.Count; i++)
+            for (int i = 0; i < ingredientPropPrefab.transform.childCount && i < properties.Count; i++)
             {
-                ingredientTextFields[i].text = properties[i].ToString("F1"); // Ýki ondalýklý olarak göster
-            }
+                if (ingredientPropPrefab.transform.GetChild(i).TryGetComponent<RectTransform>(out var recttransform))
+                {
+                    ingredientPropPrefab.transform.GetChild(i).localScale = new Vector3(Mathf.Abs(1 * properties[i] * 1.2f), 1 * properties[i] * 1.2f, Mathf.Abs(1 * properties[i]) * 1.2f);
+                }
+
+            }           
         }
     }
     

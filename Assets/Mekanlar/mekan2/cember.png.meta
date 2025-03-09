@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 341696ee689fb34458c3fb3008433768
+guid: 8c3afb2094498b5498b973bd2bc78479
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5059029283528692246
-    second: ezik_0
+      213: 7067371476052935328
+    second: cember_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ezik_0
+      name: cember_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 210
-        height: 86
+        width: 648
+        height: 649
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: aed29f6aba7bac9b0800000000000000
-      internalID: -5059029283528692246
+      spriteID: 0a20dd5b9e8541260800000000000000
+      internalID: 7067371476052935328
       vertices: []
       indices: 
       edges: []
@@ -160,8 +160,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      ezik_0: -5059029283528692246
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
