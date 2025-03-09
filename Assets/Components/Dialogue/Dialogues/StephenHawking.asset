@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82ebd1cca3e22e24ba01fe37a48998c0, type: 3}
   m_Name: StephenHawking
   m_EditorClassIdentifier: 
-  customerName: Stephen Hawking
+  customerName: Stephen Hawqueen
   startConv: I need a theory for everything. I am all in black right now.
   alchmResponse: Here spread this to your eyes and look into stars, night.
   goodAnswer: Thank you! I will finally find the theory of everything.
   badAnswer: I won't waste my energy humiliating you. You are a disgrace.
+  isMale: 1

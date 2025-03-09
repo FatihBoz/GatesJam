@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82ebd1cca3e22e24ba01fe37a48998c0, type: 3}
   m_Name: LouisPasteur
   m_EditorClassIdentifier: 
-  customerName: Louis Pasteur
+  customerName: Louis Pastel
   startConv: I want to drink milk from my cow, but I can't.
   alchmResponse: "Here, put this on your cow\u2019s food and tap on its head twice."
   goodAnswer: Thank you! Now I can add milk to my cereal in the mornings.
   badAnswer: You are a bacterium that I should eliminate.
+  isMale: 1

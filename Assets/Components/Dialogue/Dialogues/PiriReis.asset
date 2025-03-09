@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82ebd1cca3e22e24ba01fe37a48998c0, type: 3}
   m_Name: PiriReis
   m_EditorClassIdentifier: 
-  customerName: Piri Reis
+  customerName: Pir-i Reis
   startConv: The world is too vast; I need a map to cover it.
   alchmResponse: Here, spill this onto a blank map and gaze at the ocean with empty
     eyes.
   goodAnswer: Eyvallah, my brother. See you on the seas.
   badAnswer: Allah kahretsin! I will sink your ship into the sea.
+  isMale: 1

@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82ebd1cca3e22e24ba01fe37a48998c0, type: 3}
   m_Name: ThomasEdison
   m_EditorClassIdentifier: 
-  customerName: Thomas Edison
+  customerName: Thomas Edishorn
   startConv: Hi, I want whatever that person wanted. the same, nothing different.
   alchmResponse: Here, go out on a rainy day and wait for lightning. When it strikes,
     drink this and shout the first word that comes to mind.
   goodAnswer: Thank you! I will be rich!
   badAnswer: I will hunt you down with my colleagues after your work hours. Be prepared.
+  isMale: 1

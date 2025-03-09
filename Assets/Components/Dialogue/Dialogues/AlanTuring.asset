@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82ebd1cca3e22e24ba01fe37a48998c0, type: 3}
   m_Name: AlanTuring
   m_EditorClassIdentifier: 
-  customerName: Oppenheimer
+  customerName: Alan Turning
   startConv: Quick! The Nazis are winning,I need to break their communication code!
   alchmResponse: Here, take this and shake it around you,they will be afraid to communicate
     near you.
   goodAnswer: Thank you alchemist.
   badAnswer: You are not sophisticated enough to even be composed of 1s and 0s.
+  isMale: 1

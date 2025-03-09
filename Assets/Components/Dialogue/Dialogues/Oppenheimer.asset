@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82ebd1cca3e22e24ba01fe37a48998c0, type: 3}
   m_Name: Oppenheimer
   m_EditorClassIdentifier: 
-  customerName: Oppenheimer
+  customerName: Robert Closedheimer
   startConv: I want to destroy worlds and become destroyer of worlds.
   alchmResponse: Here, drink this and meet Einstein. Have a coffee and chat with
     him.
   goodAnswer: Now I am become Death, the destroyer of worlds. Thank you, Alchemist.
   badAnswer: I can't destroy the world right now, but I will destroy your life!
+  isMale: 1
