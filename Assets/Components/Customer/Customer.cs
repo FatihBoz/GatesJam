@@ -12,12 +12,9 @@ public class Customer : MonoBehaviour
 
     [Header("Scientist")]
     [SerializeField] private float popUpTime = .5f;
-    [SerializeField] private int scientistCounterLimit = 2;
     [SerializeField] private float timeBetweenScientistPopUps = 2f;
 
-    private SpriteRenderer spriteRenderer;
-    private int scientistCounter = 0;
-    
+    private SpriteRenderer spriteRenderer;   
 
     [Header("Influence Points")]
     [SerializeField] private float scientistInfluencePoints = 25;
@@ -41,13 +38,6 @@ public class Customer : MonoBehaviour
     {
         await Task.Delay(TimeSpan.FromSeconds(time));
 
-        if (scientistCounter >= scientistCounterLimit)
-        {
-            SetCustomer(customerSelector.GetRandomOrdinaryNPC());
-            scientistCounter = 0;
-            return;
-        }
-
         SetCustomer(customerSelector.GetRandomScientist());
     }
 
@@ -56,7 +46,6 @@ public class Customer : MonoBehaviour
         DialogueManager.Instance.StartDialogue(customer.DialogueObject);
         spriteRenderer.sprite = customer.CustomerSprite;
         transform.DOLocalMoveY(targetCustomerPosition.localPosition.y, popUpTime);
-        ++scientistCounter;
     }
 
 

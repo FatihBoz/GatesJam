@@ -5100,7 +5100,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 979874450797178683, guid: fab417ac9ab2d8a41a48563bacc70c8d, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1781666008177614824, guid: fab417ac9ab2d8a41a48563bacc70c8d, type: 3}
       propertyPath: m_SortingOrder
@@ -5116,7 +5116,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6647705699175034378, guid: fab417ac9ab2d8a41a48563bacc70c8d, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7250884398867059554, guid: fab417ac9ab2d8a41a48563bacc70c8d, type: 3}
       propertyPath: m_LocalScale.x
@@ -5613,8 +5613,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6389973554891531648, guid: 308212c9ea6fc37439eec551d7b9f8dd, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 534669904}
+    - target: {fileID: 6389973554891531648, guid: 308212c9ea6fc37439eec551d7b9f8dd, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6389973554891531648, guid: 308212c9ea6fc37439eec551d7b9f8dd, type: 3}
       propertyPath: m_SortingOrder
-      value: -1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6628711705612965440, guid: 308212c9ea6fc37439eec551d7b9f8dd, type: 3}
       propertyPath: m_AnchorMax.y
@@ -6011,7 +6019,6 @@ MonoBehaviour:
   initialCustomerPosition: {fileID: 1386994132}
   targetCustomerPosition: {fileID: 491112403}
   popUpTime: 0.5
-  scientistCounterLimit: 4
   timeBetweenScientistPopUps: 1.5
   scientistInfluencePoints: 25
   ordinaryNPCInfluencePoints: 10

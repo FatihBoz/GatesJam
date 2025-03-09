@@ -104,17 +104,17 @@ public class InventorySystem : MonoBehaviour
 
     private void OnEnable()
     {
-        DialogueManager.CustomerGoneEvent += CustomerGone;
+        DialogueManager.CustomerReceivedPotion += CustomerReceivedPotion;
     }
 
-    private void CustomerGone()
+    private void CustomerReceivedPotion()
     {
         RandomlyGiveItems();
     }
 
     private void OnDisable()
     {
-        DialogueManager.CustomerGoneEvent -= CustomerGone;
+        DialogueManager.CustomerReceivedPotion -= CustomerReceivedPotion;
     }
 
 }
