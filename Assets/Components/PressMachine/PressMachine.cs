@@ -15,8 +15,10 @@ public class PressMachine : MonoBehaviour
     public Transform pressingPoint;
     public bool placed;
 
+
     void Update()
     {
+
         if (PressingObject!=null && placed)
         {
             Draggable draggable = PressingObject.GetComponent<Draggable>();
@@ -25,9 +27,11 @@ public class PressMachine : MonoBehaviour
                 isObjectInPress = true;
                 PressingObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
                 PressingObject.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
+                PressingObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+
+                PressingObject.transform.eulerAngles = Vector3.zero;
                 PressingObject.transform.position = pressingPoint.position;
                 placed = false;
-                
             }
         }
         if (pressed && Time.time >= timer + pressTimer)
@@ -35,6 +39,7 @@ public class PressMachine : MonoBehaviour
             presser.DOMove(defaultPosition, 1f);
             pressed = false;
         }
+
     }
     public void Press()
     {
@@ -81,6 +86,7 @@ public class PressMachine : MonoBehaviour
    
     private void OnTriggerExit2D(Collider2D collision)
     {
+       
         if (collision.TryGetComponent<Pressable>(out var pressable))
         {
             if (PressingObject == pressable)
@@ -88,6 +94,7 @@ public class PressMachine : MonoBehaviour
                 PressingObject = null;
                 placed = false;
                 isObjectInPress = false;
+
             }
         }
     }

@@ -26,6 +26,7 @@ public class Pressable : MonoBehaviour
             currentStage++;
         }
         */
+        transform.eulerAngles = Vector3.zero;
     }
 
     /*
