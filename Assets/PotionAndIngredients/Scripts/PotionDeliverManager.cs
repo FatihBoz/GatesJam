@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,21 +11,27 @@ public class PotionDeliverManager : MonoBehaviour
     [SerializeField] private Transform positionInShop;
     [SerializeField] private GameObject bottlePrefab;
 
+    [SerializeField] private float timeBetweenBottleReplacements = .5f;
+
     private GameObject currentBottle;
 
     private void Start()
     {
+        deliverButton.gameObject.SetActive(false);
         InstantiateEmptyBottle();
         deliverButton.onClick.AddListener(DeliverPotion);
     }
 
-    private void DeliverPotion()
+    private async void DeliverPotion()
     {
         if(currentBottle == null)
             return;
 
         TransferFilledBottle();
+        deliverButton.gameObject.SetActive(false);
+        await Task.Delay(TimeSpan.FromSeconds(timeBetweenBottleReplacements));
         InstantiateEmptyBottle();
+        
     }
 
     void TransferFilledBottle()

@@ -61,6 +61,7 @@ public class Cauldron : MonoBehaviour, ICauldron
     private void OnCauldronIsEmpty()
     {
         triColor.ResetColor();
+        currentScoopCount = maxScoopCountToFill;
     }
 
     private void OnDisable()
