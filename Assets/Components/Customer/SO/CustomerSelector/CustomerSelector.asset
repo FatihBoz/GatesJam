@@ -14,9 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scientistList:
   - {fileID: 11400000, guid: f168374dd69bea443ad977b8dff7d0f7, type: 2}
+  - {fileID: 11400000, guid: f2e8a5b0617039c468fda1b17ad99834, type: 2}
   - {fileID: 11400000, guid: b435f431f738ad1429739c256a8e9cf5, type: 2}
+  - {fileID: 11400000, guid: 7e63095bf7af9584c89a8dbbdf3e17a4, type: 2}
   - {fileID: 11400000, guid: 14c97ede606b2154bb3d7d40239e4ffd, type: 2}
+  - {fileID: 11400000, guid: ac464e45bbd798e439392cd6bd54133b, type: 2}
   - {fileID: 11400000, guid: 21753ddd3302a194f92d7f9cef39b696, type: 2}
   - {fileID: 11400000, guid: 30b927df57e04d74189811f8a92aedc6, type: 2}
+  - {fileID: 11400000, guid: 8eefcf12d33aac44aa00dac11e0bfba4, type: 2}
+  - {fileID: 11400000, guid: 5b181b94cf4ad844fb3103be0f2a2760, type: 2}
+  - {fileID: 11400000, guid: 5bb60066ffe983048a959e74db358cd9, type: 2}
   - {fileID: 11400000, guid: 4278ca0c257a2ab42816ef4b62caffe0, type: 2}
   ordinaryNPCList: []

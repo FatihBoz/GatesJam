@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fe272fef39c6214f813da2d4ce7b6d2, type: 3}
   m_Name: Piri
   m_EditorClassIdentifier: 
-  customerName: 
-  customerSprite: {fileID: 0}
+  customerName: Piri
+  customerSprite: {fileID: -4075579947718362543, guid: faeaa8888d9b1974f876b90671e75e09, type: 3}
   hasNewspaper: 0
   newspaperText: 
-  dialogueObject: {fileID: 0}
+  dialogueObject: {fileID: 11400000, guid: 7aa91d142b4332846acdd559ea92593a, type: 2}

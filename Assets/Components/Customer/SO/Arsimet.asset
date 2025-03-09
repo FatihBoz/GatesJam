@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fe272fef39c6214f813da2d4ce7b6d2, type: 3}
   m_Name: Arsimet
   m_EditorClassIdentifier: 
-  customerName: 
-  customerSprite: {fileID: 0}
+  customerName: "Ar\u015Fimet"
+  customerSprite: {fileID: 5978774556198299148, guid: bbbdaa7b1ce9f4642b23fb93ada77067, type: 3}
   hasNewspaper: 0
   newspaperText: 
-  dialogueObject: {fileID: 0}
+  dialogueObject: {fileID: 11400000, guid: 4f0e2c6e4f84efe40ab8fd77cc53a980, type: 2}

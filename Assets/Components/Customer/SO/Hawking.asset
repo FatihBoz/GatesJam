@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fe272fef39c6214f813da2d4ce7b6d2, type: 3}
   m_Name: Hawking
   m_EditorClassIdentifier: 
-  customerName: 
-  customerSprite: {fileID: 0}
+  customerName: Stephen Hawking
+  customerSprite: {fileID: 1011438110175252361, guid: 90d3a44d928b9614ca082ecf8a9e5451, type: 3}
   hasNewspaper: 0
   newspaperText: 
-  dialogueObject: {fileID: 0}
+  dialogueObject: {fileID: 11400000, guid: e22a5fb461c05544c8fd4d5406178d8d, type: 2}
