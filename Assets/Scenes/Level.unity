@@ -3824,6 +3824,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4651191652301288955, guid: d1f2ebbf567481d4faacaf5d4a8af436, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 879.2
+      objectReference: {fileID: 0}
     - target: {fileID: 5089653420290646211, guid: d1f2ebbf567481d4faacaf5d4a8af436, type: 3}
       propertyPath: m_Name
       value: TradeScreen

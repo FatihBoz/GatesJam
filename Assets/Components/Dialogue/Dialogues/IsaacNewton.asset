@@ -19,4 +19,5 @@ MonoBehaviour:
     you. it will give you an idea.
   goodAnswer: Perfect, thank you. If it works, I'll come back for help with my lack
     of skills with women.
-  badAnswer: 
+  badAnswer: Shame! My anger gravitates toward you!
+  isMale: 1
