@@ -9,6 +9,9 @@ public class InventorySystem : MonoBehaviour
 
     List<InventoryItem> Inventory = new List<InventoryItem>();
     public List<Ingredients> ingredients;
+
+    public Sprite spriteOfPressedItem;
+
     private void Awake()
     {
         DefineItemsToInventory();

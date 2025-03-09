@@ -59,7 +59,7 @@ public class PressMachine : MonoBehaviour
         timer=Time.time;
 
     }
-
+    /*
     public bool IsObjectStillPressable()
     {
         if (!isObjectInPress)
@@ -69,6 +69,7 @@ public class PressMachine : MonoBehaviour
         return PressingObject.IsOnLastStage();
 
     }
+    */
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.TryGetComponent<Pressable>(out var pressable) && !isObjectInPress)
