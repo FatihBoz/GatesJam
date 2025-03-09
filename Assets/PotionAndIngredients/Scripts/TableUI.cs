@@ -1,4 +1,5 @@
 ﻿using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TableUI : MonoBehaviour
@@ -49,6 +50,8 @@ public class TableUI : MonoBehaviour
 
     private void Start()
     {
+
+
         pointerInitialPos = pointer.anchoredPosition;
 
         outerCircle = GetComponent<RectTransform>();
@@ -173,11 +176,15 @@ public class TableUI : MonoBehaviour
     public void ResetTableUI()
     {
         pointer.anchoredPosition = pointerInitialPos;
-        PlaceTargetRandomly();
     }
 
     private void OnEnable()
     {
+        if (DialogueManager.Instance.willChangeTargetPos)
+        {
+            PlaceTargetRandomly();
+            DialogueManager.Instance.willChangeTargetPos = false;
+        }
         Scoop.OnCauldronIsEmpty += ResetTableUI;
     }
 

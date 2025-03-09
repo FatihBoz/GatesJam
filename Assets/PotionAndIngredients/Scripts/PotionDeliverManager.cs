@@ -18,19 +18,18 @@ public class PotionDeliverManager : MonoBehaviour
     private void Start()
     {
         deliverButton.gameObject.SetActive(false);
-        InstantiateEmptyBottle();
+        InstantiateEmptyBottleAsync();
         deliverButton.onClick.AddListener(DeliverPotion);
     }
 
-    private async void DeliverPotion()
+    private void DeliverPotion()
     {
         if(currentBottle == null)
             return;
 
         TransferFilledBottle();
-        deliverButton.gameObject.SetActive(false);
-        await Task.Delay(TimeSpan.FromSeconds(timeBetweenBottleReplacements));
-        InstantiateEmptyBottle();
+
+        InstantiateEmptyBottleAsync();
         
     }
 
@@ -41,8 +40,10 @@ public class PotionDeliverManager : MonoBehaviour
         currentBottle.transform.position = new Vector3(currentBottle.transform.position.x, currentBottle.transform.position.y, positionInShop.localPosition.z);
     }
 
-    void InstantiateEmptyBottle()
+    private async void InstantiateEmptyBottleAsync()
     {
+        deliverButton.gameObject.SetActive(false);
+        await Task.Delay(TimeSpan.FromSeconds(timeBetweenBottleReplacements));
         GameObject obj = Instantiate(bottlePrefab, labScene);
         obj.transform.position = positionInShop.position;
         obj.transform.position = new Vector3(obj.transform.position.x, obj.transform.position.y, positionInShop.localPosition.z);
@@ -51,6 +52,13 @@ public class PotionDeliverManager : MonoBehaviour
     private void OnEnable()
     {
         Bottle.OnBottleFilled += OnBottleFilled;
+        TrashBin.OnBottleDestroyed += InstantiateEmptyBottleAsync;
+        DialogueManager.CustomerReceivedPotion += CustomerReceivedPotion;
+    }
+
+    private void CustomerReceivedPotion()
+    {
+        InstantiateEmptyBottleAsync();
     }
 
     private void OnBottleFilled(Bottle bottle)
@@ -62,5 +70,8 @@ public class PotionDeliverManager : MonoBehaviour
     private void OnDisable()
     {
         Bottle.OnBottleFilled -= OnBottleFilled;
+        TrashBin.OnBottleDestroyed -= InstantiateEmptyBottleAsync;
+
+        DialogueManager.CustomerReceivedPotion -= CustomerReceivedPotion;
     }
 }

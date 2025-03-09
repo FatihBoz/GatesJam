@@ -47,14 +47,14 @@ public class DialogueManager : MonoBehaviour
     private bool goodResponse;
 
     public static Action CustomerGoneEvent;
-
+    public static Action CustomerReceivedPotion;
 
     private string currentText;
     private TMP_Text currentTextTarget;
 
     public bool WaitingForPotion { get; private set; }
 
-
+    public bool willChangeTargetPos = false;
 
     private void Awake()
     {
@@ -139,6 +139,8 @@ public class DialogueManager : MonoBehaviour
                 // if receveid potion, if answer no go to customer sent away state
                 if (potionReceived) // gived potion
                 {
+                    CustomerReceivedPotion?.Invoke();
+                    willChangeTargetPos = true;
                     WaitingForPotion = false;
                     currentState = CustomerStates.ReceivedPotion;
                     potionReceived = false;
@@ -152,6 +154,7 @@ public class DialogueManager : MonoBehaviour
               //  Debug.Log("received potion");
                 if (!isTyping && Input.GetMouseButtonDown(0))
                 {
+
                     currentState = CustomerStates.CustomerFullyGone;
                     customerPanelGo.SetActive(true);
                     alchemistPanelGo.SetActive(false);
@@ -193,6 +196,7 @@ public class DialogueManager : MonoBehaviour
                 {
                     currentState = CustomerStates.NextCustomerWaiting;
                     CustomerGoneEvent?.Invoke();
+
                     customerPanelGo.SetActive(false);
                     alchemistPanelGo.SetActive(false);
                     potionScreen.SetActive(false);
