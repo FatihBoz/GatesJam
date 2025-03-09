@@ -7,7 +7,7 @@ public class TriColor
     public int g;
     public int b;
 
-    private int counter = 0;
+    private int counter = 1;
 
     public TriColor(int r, int g, int b)
     {
@@ -31,7 +31,7 @@ public class TriColor
         r = 0;
         g = 0;
         b = 0;
-        counter = 0;
+        counter = 1;
     }   
 
     public Color32 GetAverageColor()

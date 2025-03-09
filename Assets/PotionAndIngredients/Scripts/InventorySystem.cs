@@ -81,7 +81,7 @@ public class InventorySystem : MonoBehaviour
 
             randomNum = Random.Range(0, 3);
 
-            Inventory[i].quantity = randomNum;
+            Inventory[i].quantity += randomNum;
         }
     }
 
@@ -97,6 +97,21 @@ public class InventorySystem : MonoBehaviour
             }
         }
         return null;
+    }
+
+    private void OnEnable()
+    {
+        DialogueManager.CustomerGoneEvent += CustomerGone;
+    }
+
+    private void CustomerGone()
+    {
+        RandomlyGiveItems();
+    }
+
+    private void OnDisable()
+    {
+        DialogueManager.CustomerGoneEvent -= CustomerGone;
     }
 
 }

@@ -1,7 +1,5 @@
 ﻿using TMPro;
-using UnityEditor.SceneManagement;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class TableUI : MonoBehaviour
 {
@@ -35,7 +33,7 @@ public class TableUI : MonoBehaviour
 
     public static float accuracy;
 
-    //public TextMeshProUGUI ;
+    private Vector2 pointerInitialPos;
 
     int scale = 5;
 
@@ -51,6 +49,8 @@ public class TableUI : MonoBehaviour
 
     private void Start()
     {
+        pointerInitialPos = pointer.anchoredPosition;
+
         outerCircle = GetComponent<RectTransform>();
 
         IngredientsToTable(Ingredients);
@@ -165,46 +165,25 @@ public class TableUI : MonoBehaviour
     {
         return Mathf.Max(0, 100 - (CalculateLocalDistance(pointer, target) / pointerRadius) * 100);
     }
-
-    /*
-    public float GetCircleIntersectionArea()
-    {
-        float r1 = pointerRadius;
-        float r2 = pointerRadius;
-
-        float d;
-
-        d = CalculateLocalDistance(target, pointer);
-
-        // Eğer çemberler kesişmiyorsa (dıştalar veya biri diğerinin içinde)
-        if (d >= r1 + r2 || d <= Mathf.Abs(r1 - r2))
-        {
-            return 0f; // Kesişim yok
-        }
-
-        // Eğer biri diğerini tamamen kapsıyorsa
-        if (d == 0f && r1 == r2)
-        {
-            return (float)(Mathf.PI * Mathf.Min(r1, r2) * Mathf.Min(r1, r2)); // Tam çakışıyorlarsa küçük çemberin alanı
-        }
-
-        // Kesişim alanını hesapla
-        float part1 = r1 * r1 * (float)Mathf.Acos((d * d + r1 * r1 - r2 * r2) / (2 * d * r1));
-        float part2 = r2 * r2 * (float)Mathf.Acos((d * d + r2 * r2 - r1 * r1) / (2 * d * r2));
-        float part3 = 0.5f * (float)Mathf.Sqrt((-d + r1 + r2) * (d + r1 - r2) * (d - r1 + r2) * (d + r1 + r2));
-
-        return part1 + part2 - part3;
-    }
-
-    float CalculatePercentageOfIntersection()
-    {
-        return GetCircleIntersectionArea() / areaOfPointers;
-
-    }
-    */
     public static float GetCircleArea(float r)
     {
         return (float)(Mathf.PI * r * r); // Alan formülü: π * r^2
+    }
+
+    public void ResetTableUI()
+    {
+        pointer.anchoredPosition = pointerInitialPos;
+        PlaceTargetRandomly();
+    }
+
+    private void OnEnable()
+    {
+        Scoop.OnCauldronIsEmpty += ResetTableUI;
+    }
+
+    private void OnDisable()
+    {
+        Scoop.OnCauldronIsEmpty -= ResetTableUI;
     }
 
 }

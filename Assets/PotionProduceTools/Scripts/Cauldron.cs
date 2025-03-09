@@ -1,3 +1,4 @@
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -5,11 +6,13 @@ public class Cauldron : MonoBehaviour, ICauldron
 {
     [SerializeField] private int maxScoopCountToFill = 3;
 
-    private int currentScoopCount;
+    private int currentScoopCount = 1;
 
     public GameObject TableUI;
 
     private TriColor triColor;
+
+    public int ScoopCount => currentScoopCount;
 
     private void Start()
     {
@@ -30,7 +33,6 @@ public class Cauldron : MonoBehaviour, ICauldron
     public Color GetPotionColor()
     {
         Color32 tempColor = triColor.GetAverageColor();
-        print("cauldron color:" + tempColor.ToString());
         triColor.ResetColor();
         return tempColor;
     }
@@ -46,11 +48,25 @@ public class Cauldron : MonoBehaviour, ICauldron
             {
                 percentage = sliceable.percentage;
             }
-            Debug.Log(percentage);
+
+
             tableUI.IngredientsToTable(item.ingredient,percentage);
             Destroy(collision.gameObject);
         }
+    }
 
-        
+    private void OnEnable()
+    {
+        Scoop.OnCauldronIsEmpty += OnCauldronIsEmpty;
+    }
+
+    private void OnCauldronIsEmpty()
+    {
+        triColor.ResetColor();
+    }
+
+    private void OnDisable()
+    {
+        Scoop.OnCauldronIsEmpty -= OnCauldronIsEmpty;
     }
 }

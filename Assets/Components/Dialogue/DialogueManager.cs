@@ -54,6 +54,8 @@ public class DialogueManager : MonoBehaviour
 
     public bool WaitingForPotion { get; private set; }
 
+
+
     private void Awake()
     {
         if (Instance == null)

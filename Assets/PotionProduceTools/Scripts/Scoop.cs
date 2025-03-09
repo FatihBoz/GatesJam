@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,6 +22,8 @@ public class Scoop : MonoBehaviour
     private bool isFilled = false;
     private float successRate;
 
+    public static Action OnCauldronIsEmpty;
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -33,6 +36,12 @@ public class Scoop : MonoBehaviour
                 liquid.color = cauldron.GetPotionColor();
                 ChangeParticleSystemColors();
                 isFilled = true;
+
+                if (cauldron.ScoopCount <= 1)
+                {
+                    print("scoop count 0");
+                    OnCauldronIsEmpty?.Invoke();
+                }
             }
 
         }
