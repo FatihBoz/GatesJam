@@ -75,6 +75,7 @@ public class DialogueManager : MonoBehaviour
 
     public async void StartDialogue(DialogueObject dialogueObject)
     {
+        SoundAffects.Instance.PlayMaleTalkSF();
         alchemistPanelGo.SetActive(false);
         await Task.Delay(500);
         customerPanelGo.SetActive(true);
@@ -127,6 +128,7 @@ public class DialogueManager : MonoBehaviour
             case CustomerStates.CustomerArrived:
                 if (!isTyping)
                 {
+                    SoundAffects.Instance.StopVoice();
                     WaitingForPotion = true;
                     currentState = CustomerStates.WaitingForPotion;
                     // enable potion screen

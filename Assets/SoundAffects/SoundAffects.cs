@@ -22,6 +22,10 @@ public class SoundAffects : MonoBehaviour
         Instance = this;
     }
 
+    public void StopVoice()
+    {
+        source.Stop();
+    }
 
     public void PlayFemaleWinSF()
     {
