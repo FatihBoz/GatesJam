@@ -7,6 +7,7 @@ public class Draggable : MonoBehaviour
 
     public bool canMove=true;
     public bool doesStartDragging = true;
+
     void Awake()
     {
         canMove = true;
