@@ -71,6 +71,7 @@ public class IngredientDuplicator : MonoBehaviour
                 inventoryItem = InventorySystem.instance.SearchItem(ingrName);
 
                 currentIngredient = Instantiate(inventoryItem.ingredient.ingrPrefab, transform.position, Quaternion.identity);
+                currentIngredient.transform.parent = transform.parent;
                 InventorySystem.instance.DelItem(ingrName, 1);
                 UpdateText();
 
