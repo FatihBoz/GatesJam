@@ -25,9 +25,14 @@ public class PressMachine : MonoBehaviour
             if (!draggable.isDragging)
             {
                 isObjectInPress = true;
-                PressingObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
-                PressingObject.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
-                PressingObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+
+                if (PressingObject.TryGetComponent<Rigidbody2D>(out var rb))
+                {
+                    rb.bodyType = RigidbodyType2D.Kinematic;
+                    rb.linearVelocity = Vector2.zero;
+                    rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+                }
+
 
                 PressingObject.transform.eulerAngles = Vector3.zero;
                 PressingObject.transform.position = pressingPoint.position;

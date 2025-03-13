@@ -53,13 +53,9 @@ public class PotionDeliverManager : MonoBehaviour
     {
         Bottle.OnBottleFilled += OnBottleFilled;
         TrashBin.OnBottleDestroyed += InstantiateEmptyBottleAsync;
-        DialogueManager.CustomerReceivedPotion += CustomerReceivedPotion;
+
     }
 
-    private void CustomerReceivedPotion()
-    {
-        InstantiateEmptyBottleAsync();
-    }
 
     private void OnBottleFilled(Bottle bottle)
     {
@@ -71,7 +67,5 @@ public class PotionDeliverManager : MonoBehaviour
     {
         Bottle.OnBottleFilled -= OnBottleFilled;
         TrashBin.OnBottleDestroyed -= InstantiateEmptyBottleAsync;
-
-        DialogueManager.CustomerReceivedPotion -= CustomerReceivedPotion;
     }
 }

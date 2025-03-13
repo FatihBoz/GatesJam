@@ -133,7 +133,10 @@ public class SliceManager : MonoBehaviour
 
         choppingBoard.AddItem(leftSC);
         choppingBoard.AddItem(rightSC);
+
         // Orijinal objeyi yok et
         Destroy(obj);
+
+       
     }
 }

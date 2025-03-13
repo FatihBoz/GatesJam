@@ -12,8 +12,9 @@ public class Bottle : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, 
     [SerializeField] private Animator animator;
 
     private bool isFilled = false;
-    private bool isHovering;
+    public bool isHovering;
     private float successRate;
+
 
     public static Action<Bottle> OnBottleFilled;
     public bool IsHoveringOnBottle => isHovering;

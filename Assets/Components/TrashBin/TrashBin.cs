@@ -1,18 +1,20 @@
 using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class TrashBin : MonoBehaviour
+public class TrashBin : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public static Action OnBottleDestroyed;
-    private void OnTriggerStay2D(Collider2D collision)
+    public static bool isOverTrashBin;
+
+    public void OnPointerEnter(PointerEventData eventData)
     {
-        if (collision.TryGetComponent<Draggable>(out var draggable))
-        {
-            if (!draggable.isDragging)
-            {
-                OnBottleDestroyed?.Invoke();
-                Destroy(collision.gameObject);
-            }
-        }
+        isOverTrashBin = true;
     }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        isOverTrashBin = false;
+    }
+
 }

@@ -20,6 +20,7 @@ public class Draggable : MonoBehaviour
         {
             isDragging = true;
             rb.bodyType = RigidbodyType2D.Dynamic;
+            rb.gravityScale = 0;
         }
     }
     private void Update()
@@ -30,12 +31,27 @@ public class Draggable : MonoBehaviour
             transform.position = new Vector3(transform.position.x, transform.position.y, 0);
             if (Input.GetMouseButtonUp(0))
             {
+                rb.gravityScale = 1;
+
+                if (TrashBin.isOverTrashBin && isDragging)
+                {
+
+                    if (TryGetComponent<Bottle>(out var bottle))
+                    {
+                        TrashBin.OnBottleDestroyed?.Invoke();
+                        
+                    }
+                    
+                    Destroy(gameObject);
+                }
                 isDragging = false;
+            }
+
+
             }
         }
     }
-    private void OnMouseUp()
-    {
 
-    }
-}
+
+
+

@@ -90,12 +90,10 @@ public class InventorySystem : MonoBehaviour
 
     public InventoryItem SearchItem(string ItemName)
     {
-        print(ItemName + " Item searching...");
         foreach (var data in Inventory)
         {
             if (data.ingredient.ingrName == ItemName)
             {
-                print(data.ingredient.ingrName + " Item founded...");
                 return data;
             }
         }

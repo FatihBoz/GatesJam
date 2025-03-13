@@ -70,6 +70,8 @@ public class TableUI : MonoBehaviour
 
         areaOfPointers = GetCircleArea(pointerRadius);
 
+        PlaceTargetRandomly();
+
     }
 
     public void PlaceTargetRandomly()

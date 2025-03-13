@@ -217,8 +217,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d747a4aac3f1fe740bcca553f4827367, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprites:
-  - {fileID: 3194569316663629199, guid: c7a1186160634f140be23e6118148796, type: 3}
 --- !u!114 &-4946520186493061508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,10 +247,10 @@ MonoBehaviour:
   originalPosition: {x: 0, y: 0}
   size:
     serializedVersion: 2
-    x: 0
-    y: 0
-    width: 0
-    height: 0
+    x: 1
+    y: 1
+    width: 1
+    height: 1
   IsMain: 1
-  mainWidth: 0
+  mainWidth: 1
   percentage: 1
